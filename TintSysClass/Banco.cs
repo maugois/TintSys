@@ -9,7 +9,7 @@ namespace TintSysClass
 {
     internal static class Banco
     {
-        private static string strConn;
+        private static string strConn; // Atributo
 
         public static MySqlCommand Abrir() 
         {
@@ -17,7 +17,7 @@ namespace TintSysClass
 
             MySqlCommand cmd = new MySqlCommand();
 
-            try // Tentar abrir
+            try // Tentar abrir - Fluxos alternativos (Especificação de Caso de Uso DOC)
             {
                 MySqlConnection cn = new MySqlConnection(strConn);
                 if (cn.State!=System.Data.ConnectionState.Open)
@@ -33,6 +33,13 @@ namespace TintSysClass
             }
 
             return cmd; 
+        }
+        public static void Fechar(MySqlCommand cmd)
+        {
+            if (cmd.Connection.State==System.Data.ConnectionState.Open)
+            {
+                cmd.Connection.Close();
+            }
         }
     }
 }
