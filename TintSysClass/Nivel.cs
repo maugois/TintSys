@@ -43,7 +43,7 @@ namespace TintSysClass
         }
 
         // Métodos da Classes (Inserir, Alterar, Consultar, Por Id, Por ...)
-        public void Inserir()
+        public void Inserir() // Teste OK
         {
             // Cria uma variável com uma conexão de banco aberta 
             var cmd = Banco.Abrir();
@@ -70,5 +70,57 @@ namespace TintSysClass
             // Fecha a conexão do banco aberto
             Banco.Fechar(cmd);
         }
+
+        public static Nivel ObterPorId(int _id)
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            
+            cmd.CommandText = "select * from niveis where id = @id";
+            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = _id;
+            
+            var dr = cmd.ExecuteReader();
+            Nivel nivel = null;
+            
+            while (dr.Read())
+            {
+                nivel = new Nivel
+                    (
+                        dr.GetInt32(0),
+                        dr.GetString(1),
+                        dr.GetString(2)
+                    );
+            }
+
+            Banco.Fechar(cmd);
+
+            return nivel;
+        }
+
+        public static List<Nivel> Listar()
+        {
+            List<Nivel> lista = new List<Nivel>();
+
+            var cmd = Banco.Abrir();
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from niveis";
+
+            var dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                lista.Add(new Nivel
+                    (
+                        dr.GetInt32(0),
+                        dr.GetString(1),
+                        dr.GetString(2)
+                    ));
+            }
+
+            Banco.Fechar(cmd);
+
+            return lista;
+        } 
     }
 }
