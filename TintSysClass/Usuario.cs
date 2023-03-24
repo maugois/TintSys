@@ -70,10 +70,28 @@ namespace TintSysClass
         public static Usuario EfetuarLogin(string _email, string _senha) 
         { 
             Usuario usuario = null;
+            MySqlCommand cmd = Banco.Abrir();
+
+            cmd.CommandText = "select id, nome, email, nivel from usuarios " +
+                              "where email = @email and senha = md5(@senha) and ativo = 1";
+
+            cmd.Parameters.AddWithValue("@email", _email);
+            cmd.Parameters.AddWithValue("@email", _senha);
+
+            var dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                usuario = new Usuario();
+                usuario.Id = dr.GetInt32(0);
+                usuario.Nome = dr.GetString(1);
+                usuario.Email = dr.GetString(2);
+                usuario.Nivel = Nivel.ObterPorId(dr.GetInt32(3));
+
+            }
 
             return usuario;
         }
-
 
         /// <summary>
         /// 
