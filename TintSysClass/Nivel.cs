@@ -19,7 +19,6 @@ namespace TintSysClass
         private string sigla;
 
         // Propriedades (Encapsulamento) getters and setters ou Métodos de acesse 
-        
         public int Id { get { return id; } set {  id = value; } }
         
         public string Nome { get {  return nome; } set {  nome = value; } }
@@ -42,6 +41,10 @@ namespace TintSysClass
             Sigla = _sigla;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
         // Métodos da Classes (Inserir, Alterar, Consultar, Por Id, Por ...)
         public void Inserir() // Teste OK
         {
@@ -71,6 +74,12 @@ namespace TintSysClass
             Banco.Fechar(cmd);
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_id"></param>
+        /// <returns></returns>
         public static Nivel ObterPorId(int _id)
         {
             var cmd = Banco.Abrir();
@@ -97,6 +106,11 @@ namespace TintSysClass
             return nivel;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<Nivel> Listar()
         {
             List<Nivel> lista = new List<Nivel>();
@@ -121,6 +135,54 @@ namespace TintSysClass
             Banco.Fechar(cmd);
 
             return lista;
-        } 
+        }
+        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Atualizar()
+        {
+            var cmd = Banco.Abrir();
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "update niveis set nome = @nome, sigla = @sigla where id = @id";
+            cmd.Parameters.Add("@nome", MySqlDbType.Int32).Value = Id;
+            cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
+            cmd.Parameters.Add("@sigla", MySqlDbType.VarChar).Value = Sigla;
+            
+            Banco.Fechar(cmd);
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_id"></param>
+        /// <returns></returns>
+        public int Excluir(int _id)
+        {
+            int msg = 0;
+            var cmd = Banco.Abrir();
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "delete from niveis where id = " + _id;
+
+            try
+            {
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    msg = 1;
+                } 
+            }
+            catch (Exception e)
+            {
+                if (e.Message.Contains("FOREIGN KEY"))
+                    msg = 2;
+            }
+
+            Banco.Fechar(cmd);
+            return msg;
+        }
     }
 }

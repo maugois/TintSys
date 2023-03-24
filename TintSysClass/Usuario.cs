@@ -1,4 +1,5 @@
-﻿using Org.BouncyCastle.Asn1.Cms;
+﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.Cms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -144,7 +145,20 @@ namespace TintSysClass
         /// </summary>
         public void Inserir()
         {
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "insert usuarios (nome, email, senha, nivel_id, ativo) " +
+                               "values(@nome, @email, md5(@senha), @nivel, 1)";
+            cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = Email;
+            cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = Senha;
+            cmd.Parameters.Add("@nome", MySqlDbType.Int32).Value = Nivel.Id;
 
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "select @@identity";
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            Banco.Fechar(cmd);
         }
 
 
@@ -153,7 +167,15 @@ namespace TintSysClass
         /// </summary>
         public void Atualizar()
         {
+            var cmd = Banco.Abrir();
 
+            cmd.CommandText = "update usuarios set nome = @nome, senha = md5(@senha), nivel_id = @nivel where id = " + Id;
+            cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
+            cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = Senha;
+            cmd.Parameters.Add("@nivel", MySqlDbType.Int32).Value = Nivel.Id;
+            cmd.ExecuteNonQuery();
+
+            Banco.Fechar(cmd);
         }
 
 
@@ -161,9 +183,14 @@ namespace TintSysClass
         /// 
         /// </summary>
         /// <param name="_id"></param>
-        public void Arquivar(int _id) 
+        public static void Arquivar(int _id) 
         {
-        
+            var cmd = Banco.Abrir();
+
+            cmd.CommandText = "update usuarios set ativo = 0 where id = " + _id;
+            cmd.ExecuteNonQuery();
+
+            Banco.Fechar(cmd);
         }
 
 
@@ -171,9 +198,14 @@ namespace TintSysClass
         /// 
         /// </summary>
         /// <param name="_id"></param>
-        public void Restaurar(int _id)
+        public static void Restaurar(int _id)
         {
+            var cmd = Banco.Abrir();
 
+            cmd.CommandText = "update usuarios set ativo = 1 where id = " + _id;
+            cmd.ExecuteNonQuery();
+
+            Banco.Fechar(cmd);  
         }
 
 
@@ -183,7 +215,12 @@ namespace TintSysClass
         /// <param name="_id"></param>
         public void Excluir(int _id)
         {
+            var cmd = Banco.Abrir();
 
+            cmd.CommandText = "delete from usuarios where id = " + _id;
+            cmd.ExecuteNonQuery();
+
+            Banco.Fechar(cmd);
         }
     }
 }
