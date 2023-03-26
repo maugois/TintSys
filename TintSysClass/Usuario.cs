@@ -62,11 +62,11 @@ namespace TintSysClass
 
         // Métodos
         /// <summary>
-        /// 
+        /// Um método que busca email e senha no Banco de Dados especificado pelos parâmetros, para validação.
         /// </summary>
-        /// <param name="_email"></param>
-        /// <param name="_senha"></param>
-        /// <returns></returns>
+        /// <param name="_email">Email especificado para fazer a busca no Banco de Dados.</param>
+        /// <param name="_senha">Senha especificado para fazer a busca no Banco de Dados.</param>
+        /// <returns>Ele retorna um objeto de dados obtidos na consulta.</returns>
         public static Usuario EfetuarLogin(string _email, string _senha) 
         { 
             Usuario usuario = null;
@@ -94,10 +94,10 @@ namespace TintSysClass
         }
 
         /// <summary>
-        /// 
+        /// Método que traz os dados do Usuário pelo ID especificado que está cadastrado no Banco de Dados.
         /// </summary>
-        /// <param name="_id"></param>
-        /// <returns></returns>
+        /// <param name="_id">Parâmetro que especifica o dado por ID que irá Listar no banco de dados.</param>
+        /// <returns>Retorna um objeto de Usuario com dados obtidos.</returns>
         public static Usuario ObterPorId(int _id)
         {
             Usuario usuario = null;
@@ -124,10 +124,12 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método que traz uma Lista de dados do Usuário que está cadastrado no Banco de Dados.
+        /// Se for entregue um parâmetro ele trará dados relacionado ao especificado. Caso contrário
+        /// ele lista-rá todos os dados.
         /// </summary>
-        /// <param name="_nome"></param>
-        /// <returns></returns>
+        /// <param name="_nome">Parâmetro que especifica o dado que irá Listar/Filtrar no banco de dados.</param>
+        /// <returns>Retorna uma lista de objetos com dados obtidos.</returns>
         public static List<Usuario> Listar(string _nome = "")
         {
             List<Usuario> lista = new List<Usuario>();
@@ -159,7 +161,7 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método para Inserir/Registrar dados do Usuário no Banco de Dados.
         /// </summary>
         public void Inserir()
         {
@@ -181,7 +183,7 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método para Atualizar/Alterar dados do Usuário no Banco de Dados.
         /// </summary>
         public void Atualizar()
         {
@@ -198,9 +200,9 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método para Arquivar dados do Usuário no Banco de Dados.
         /// </summary>
-        /// <param name="_id"></param>
+        /// <param name="_id">Parâmetro que identifica o dado a ser Arquivado.</param>
         public static void Arquivar(int _id) 
         {
             var cmd = Banco.Abrir();
@@ -213,9 +215,9 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método para Restaurar dados do Usuário no Banco de Dados.
         /// </summary>
-        /// <param name="_id"></param>
+        /// <param name="_id">Parâmetro que identifica o dado a ser Restaurado.</param>
         public static void Restaurar(int _id)
         {
             var cmd = Banco.Abrir();
@@ -228,9 +230,9 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método para Exluir permanentemente dados do Usuário no Banco de Dados.
         /// </summary>
-        /// <param name="_id"></param>
+        /// <param name="_id">Parâmetro que identifica o dado a ser Excluído permanentemente.</param>
         public void Excluir(int _id)
         {
             var cmd = Banco.Abrir();

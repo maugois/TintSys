@@ -43,7 +43,7 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método para Inserir/Registrar dados de Nível no Banco de Dados.
         /// </summary>
         // Métodos da Classes (Inserir, Alterar, Consultar, Por Id, Por ...)
         public void Inserir() // Teste OK
@@ -76,10 +76,10 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método que traz os dados de Nível pelo ID especificado que está cadastrado no Banco de Dados.
         /// </summary>
-        /// <param name="_id"></param>
-        /// <returns></returns>
+        /// <param name="_id">Parâmetro que especifica o dado por ID que irá Listar no banco de dados.</param>
+        /// <returns>Retorna um objeto de Nível com dados obtidos.</returns>
         public static Nivel ObterPorId(int _id)
         {
             var cmd = Banco.Abrir();
@@ -108,9 +108,9 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método que traz uma Lista de dados de Nível que está cadastrado no Banco de Dados.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Retorna uma lista de objetos com dados obtidos.</returns>
         public static List<Nivel> Listar()
         {
             List<Nivel> lista = new List<Nivel>();
@@ -136,10 +136,10 @@ namespace TintSysClass
 
             return lista;
         }
-        
+
 
         /// <summary>
-        /// 
+        /// Método para Atualizar/Alterar dados de Nível no Banco de Dados.
         /// </summary>
         public void Atualizar()
         {
@@ -156,10 +156,10 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método para Exluir permanentemente dados de Nível no Banco de Dados.
         /// </summary>
-        /// <param name="_id"></param>
-        /// <returns></returns>
+        /// <param name="_id">Parâmetro que identifica o dado a ser Excluído permanentemente.</param>
+        /// <returns>Retorna um valor 0, 1 ou 2. 0 para mostrar que o Nivel não foi excluído. 1 para mostrar que o Nivel foi excluído. 2 para mostrar que o Nivel não foi excluído por conta de uma chave estrangeira.</returns>
         public int Excluir(int _id)
         {
             int msg = 0;

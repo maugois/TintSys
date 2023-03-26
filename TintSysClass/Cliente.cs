@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TintSysClass
 {
-    internal class Cliente
+    public class Cliente
     {
         // Atributos
         private int id;
@@ -61,7 +62,7 @@ namespace TintSysClass
 
         // Métodos
         /// <summary>
-        /// 
+        /// Método para Inserir/Registrar dados do Cliente no Banco de Dados.
         /// </summary>
         public void Inserir()
         {
@@ -82,7 +83,7 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método para Atualizar/Alterar dados do Cliente no Banco de Dados.
         /// </summary>
         public void Atualizar()
         {
@@ -97,9 +98,9 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método para Arquivar dados do Cliente no Banco de Dados.
         /// </summary>
-        /// <param name="_id"></param>
+        /// <param name="_id">Parâmetro que identifica o dado a ser Arquivado.</param>
         public static void Arquivar(int _id)
         {
             var cmd = Banco.Abrir();
@@ -112,9 +113,9 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método para Restaurar dados Arquivados do Cliente no Banco de Dados.
         /// </summary>
-        /// <param name="_id"></param>
+        /// <param name="_id">Parâmetro que identifica o dado a ser Restaurado.</param>
         public static void Restaurar(int _id)
         {
             var cmd = Banco.Abrir();
@@ -127,24 +128,43 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método para Exluir permanentemente dados do Cliente no Banco de Dados.
         /// </summary>
-        public void Excluir()
+        /// <param name="_id">Parâmetro que identifica o dado a ser Excluído permanentemente.</param> 
+        /// <returns>Retorna um valor 0, 1 ou 2. 0 para mostrar que o Cliente não foi excluído. 1 para mostrar que o Cliente foi excluído. 2 para mostrar que o Cliente não foi excluído por conta de uma chave estrangeira.</returns>
+        public int Excluir(int _id)
         {
+            int msg = 0;
             var cmd = Banco.Abrir();
 
-            cmd.CommandText = "delete from clientes where id = " + Id;
-            cmd.ExecuteNonQuery();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "delete from clientes where id = " + _id;
 
-            Banco.Fechar(cmd);  
+            try
+            {
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    msg = 1;
+                }
+            }
+            catch (Exception e)
+            {
+                if (e.Message.Contains("FOREIGN KEY"))
+                    msg = 2;
+            }
+
+            Banco.Fechar(cmd);
+            return msg;
         }
 
 
         /// <summary>
-        /// 
+        /// Método que traz uma Lista de dados do Cliente que está cadastrado no Banco de Dados.
+        /// Se for entregue um parâmetro ele trará o dado relacionado ao especificado. Caso contrário
+        /// ele lista-rá todos os dados.
         /// </summary>
-        /// <param name="_nome"></param>
-        /// <returns></returns>
+        /// <param name="_nome">Parâmetro que especifica o dado que irá Listar/Filtrar no banco de dados.</param>
+        /// <returns>Retorna uma lista de objetos com dados obtidos.</returns>
         public static List<Cliente> Listar(string _nome = "") 
         {
             List<Cliente> lista = new List<Cliente>();
@@ -176,10 +196,10 @@ namespace TintSysClass
 
 
         /// <summary>
-        /// 
+        /// Método que traz os dados do Cliente pelo ID especificado que está cadastrado no Banco de Dados.
         /// </summary>
-        /// <param name="_id"></param>
-        /// <returns></returns>
+        /// <param name="_id">Parâmetro que especifica o dado por ID que irá Listar no banco de dados.</param>
+        /// <returns>Retorna um objeto de Cliente com dados obtidos.</returns>
         public static Cliente ObterPorId(int _id)
         {
             Cliente cliente = null;
