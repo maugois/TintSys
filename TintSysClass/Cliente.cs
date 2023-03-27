@@ -18,6 +18,8 @@ namespace TintSysClass
         private string email;
         private DateTime dataCad;
         private bool ativo;
+        private List<Endereco> enderecos;
+        private List<Telefone> telefones;
 
         //Propriedades
         public int Id { get => id; set => id = value; }
@@ -26,11 +28,13 @@ namespace TintSysClass
         public string Email { get => email; set => email = value; }
         public DateTime DataCad { get => dataCad; set => dataCad = value; }
         public bool Ativo { get => ativo; set => ativo = value; }
+        public List<Endereco> Enderecos { get => enderecos; set => enderecos = value; }
+        public List<Telefone> Telefones { get => telefones; set => telefones = value; }
 
         // Métodos Construtores
         public Cliente() { }
 
-        public Cliente(int id, string nome, string cpf, string email, DateTime dataCad, bool ativo)
+        public Cliente(int id, string nome, string cpf, string email, DateTime dataCad, bool ativo, List<Endereco> Enderecos, List<Telefone> Telefones)
         {
             this.Id = id;
             this.Nome = nome;
@@ -38,6 +42,8 @@ namespace TintSysClass
             this.Email = email;
             this.DataCad = dataCad;
             this.Ativo = ativo;
+            this.Enderecos = Enderecos;
+            this.Telefones = Telefones;   
         }
 
         public Cliente(string nome, string cpf, string email, DateTime dataCad, bool ativo)
@@ -47,6 +53,15 @@ namespace TintSysClass
             this.Cpf = cpf;
             this.Email = email;
             this.DataCad = dataCad;
+            this.Ativo = ativo;
+        }
+
+        public Cliente(string nome, string cpf, string email, bool ativo)
+        {
+            this.Id = id;
+            this.Nome = nome;
+            this.Cpf = cpf;
+            this.Email = email;
             this.Ativo = ativo;
         }
 
@@ -178,17 +193,17 @@ namespace TintSysClass
 
             var dr = cmd.ExecuteReader();
 
-            while (dr.Read())
-            {
-                lista.Add(new Cliente(
-                        dr.GetInt32(0),
-                        dr.GetString(1),
-                        dr.GetString(2),
-                        dr.GetString(3),
-                        dr.GetDateTime(4),
-                        dr.GetBoolean(5)
-                   ));
-            }
+            //while (dr.Read())
+            //{
+            //    lista.Add(new Cliente(
+            //            dr.GetInt32(0),
+            //            dr.GetString(1),
+            //            dr.GetString(2),
+            //            dr.GetString(3),
+            //            dr.GetDateTime(4),
+            //            dr.GetBoolean(5)
+            //       ));
+            //}
 
             Banco.Fechar(cmd);
             return lista;
@@ -208,17 +223,17 @@ namespace TintSysClass
             cmd.CommandText = "select * from clientes where id = " + _id;
             var dr = cmd.ExecuteReader();
 
-            while (dr.Read())
-            {
-                cliente = new Cliente(
-                        dr.GetInt32(0),
-                        dr.GetString(1),
-                        dr.GetString(2),
-                        dr.GetString(3),
-                        dr.GetDateTime(4),
-                        dr.GetBoolean(5)
-                    );
-            }
+            //while (dr.Read())
+            //{
+            //    cliente = new Cliente(
+            //            dr.GetInt32(0),
+            //            dr.GetString(1),
+            //            dr.GetString(2),
+            //            dr.GetString(3),
+            //            dr.GetDateTime(4),
+            //            dr.GetBoolean(5)
+            //        );
+            //}
 
             Banco.Fechar(cmd);
             return cliente;

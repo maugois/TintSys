@@ -14,20 +14,27 @@ namespace TintSysClass
         private int id;
         private string numero;
         private string tipo;
-        private Cliente cliente_id;
+        private int cliente_id;
 
         // Propriedades
         public int Id { get => id; set => id = value; }
         public string Numero { get => numero; set => numero = value; }
         public string Tipo { get => tipo; set => tipo = value; }
-        public Cliente Cliente_id { get => cliente_id; set => cliente_id = value; }
+        public int Cliente_id { get => cliente_id; set => cliente_id = value; }
 
         // Métodos Construtores
         public Telefone() { }
 
-        public Telefone(int id, string numero, string tipo, Cliente cliente_id)
+        public Telefone(int id, string numero, string tipo, int cliente_id)
         {
             this.id = id;   
+            this.numero = numero;
+            this.tipo = tipo;
+            this.cliente_id = cliente_id;
+        }
+
+        public Telefone(string numero, string tipo, int cliente_id)
+        {
             this.numero = numero;
             this.tipo = tipo;
             this.cliente_id = cliente_id;
@@ -37,14 +44,14 @@ namespace TintSysClass
         /// <summary>
         /// Método para Inserir/Registrar dados do Telefone do Cliente no Banco de Dados.
         /// </summary>
-        public void Inserir()
+        public void Inserir(int _id_cliente)
         {
             var cmd = Banco.Abrir();
             cmd.CommandText = "insert telefones (numero, tipo, cliente_id) " +
                                "values(@numero, @tipo, @cliente_id)";
             cmd.Parameters.Add("@numero", MySqlDbType.VarChar).Value = Numero;
             cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = Tipo;
-            cmd.Parameters.Add("@cliente_id", MySqlDbType.Int32).Value = Cliente_id.Id;
+            cmd.Parameters.Add("@cliente_id", MySqlDbType.Int32).Value = _id_cliente;
 
             cmd.ExecuteNonQuery();
 
@@ -107,15 +114,15 @@ namespace TintSysClass
 
             var dr = cmd.ExecuteReader();
 
-            while (dr.Read())
-            {
-                lista.Add(new Telefone(
-                       dr.GetInt32(0),
-                       dr.GetString(1),
-                       dr.GetString(2),
-                       Cliente.ObterPorId(dr.GetInt32(3))
-                   ));
-            }
+            //while (dr.Read())
+            //{
+            //    lista.Add(new Telefone(
+            //           dr.GetInt32(0),
+            //           dr.GetString(1),
+            //           dr.GetString(2),
+            //           Cliente.ObterPorId(dr.GetInt32(3))
+            //       ));
+            //}
 
             Banco.Fechar(cmd);
             return lista;
@@ -135,15 +142,15 @@ namespace TintSysClass
             cmd.CommandText = "select * from telefones where id = " + _id;
             var dr = cmd.ExecuteReader();
 
-            while (dr.Read())
-            {
-                telefone = new Telefone(
-                       dr.GetInt32(0),
-                       dr.GetString(1),
-                       dr.GetString(2),
-                       Cliente.ObterPorId(dr.GetInt32(3))
-                    );
-            }
+            //while (dr.Read())
+            //{
+            //    telefone = new Telefone(
+            //           dr.GetInt32(0),
+            //           dr.GetString(1),
+            //           dr.GetString(2),
+            //           Cliente.ObterPorId(dr.GetInt32(3))
+            //        );
+            //}
 
             Banco.Fechar(cmd);
             return telefone;

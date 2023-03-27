@@ -20,7 +20,7 @@ namespace TintSysClass
         private string estado;
         private string uf;
         private string tipo;
-        private Cliente cliente_id;
+        private int cliente_id;
 
 
         // Propriedades
@@ -34,14 +34,28 @@ namespace TintSysClass
         public string Estado { get => estado; set => estado = value; }
         public string Uf { get => uf; set => uf = value; }
         public string Tipo { get => tipo; set => tipo = value; }
-        public Cliente Cliente_id { get => cliente_id; set => cliente_id = value; }
+        public int Cliente_id { get => cliente_id; set => cliente_id = value; }
 
         // Métodos Construtores
         public Endereco() { }
 
-        public Endereco(int id, string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo, Cliente cliente_id)
+        public Endereco(int id, string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo, int cliente_id)
         {
             this.id = id;
+            this.cep = cep;
+            this.logradouro = logradouro;
+            this.numero = numero;
+            this.complemento = complemento;
+            this.bairro = bairro;
+            this.cidade = cidade;
+            this.estado = estado;
+            this.uf = uf;
+            this.tipo = tipo;
+            this.cliente_id = cliente_id;
+        }
+
+        public Endereco(string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo, int cliente_id)
+        {
             this.cep = cep;
             this.logradouro = logradouro;
             this.numero = numero;
@@ -58,7 +72,7 @@ namespace TintSysClass
         /// <summary>
         /// Método para Inserir/Registrar dados do Endereço do Cliente no Banco de Dados.
         /// </summary>
-        public void Inserir()
+        public void Inserir(int _cliente_id)
         {
             var cmd = Banco.Abrir();
             cmd.CommandText = "insert enderecos (cep, logradouro, numero, complemento, bairro, cidade, estado, uf, tipo, cliente_id) " +
@@ -72,7 +86,7 @@ namespace TintSysClass
             cmd.Parameters.Add("@estado", MySqlDbType.VarChar).Value = Estado;
             cmd.Parameters.Add("@uf", MySqlDbType.VarChar).Value = Uf;
             cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = Tipo;
-            cmd.Parameters.Add("@cliente_id", MySqlDbType.Int32).Value = Cliente_id.Id;
+            cmd.Parameters.Add("@cliente_id", MySqlDbType.Int32).Value = _cliente_id;
 
             cmd.ExecuteNonQuery();
 
@@ -142,22 +156,22 @@ namespace TintSysClass
 
             var dr = cmd.ExecuteReader();
 
-            while (dr.Read())
-            {
-                lista.Add(new Endereco(
-                       dr.GetInt32(0),
-                       dr.GetString(1),
-                       dr.GetString(2),
-                       dr.GetString(3),
-                       dr.GetString(4),
-                       dr.GetString(5),
-                       dr.GetString(6),
-                       dr.GetString(7),
-                       dr.GetString(8),
-                       dr.GetString(9),
-                       Cliente.ObterPorId(dr.GetInt32(10))
-                   ));
-            }
+            //while (dr.Read())
+            //{
+            //    lista.Add(new Endereco(
+            //           dr.GetInt32(0),
+            //           dr.GetString(1),
+            //           dr.GetString(2),
+            //           dr.GetString(3),
+            //           dr.GetString(4),
+            //           dr.GetString(5),
+            //           dr.GetString(6),
+            //           dr.GetString(7),
+            //           dr.GetString(8),
+            //           dr.GetString(9),
+            //           Cliente.ObterPorId(dr.GetInt32(10))
+            //       ));
+            //}
 
             Banco.Fechar(cmd);
             return lista;
@@ -177,22 +191,22 @@ namespace TintSysClass
             cmd.CommandText = "select * from enderecos where id = " + _id;
             var dr = cmd.ExecuteReader();
 
-            while (dr.Read())
-            {
-                endereco = new Endereco(
-                       dr.GetInt32(0),
-                       dr.GetString(1),
-                       dr.GetString(2),
-                       dr.GetString(3),
-                       dr.GetString(4),
-                       dr.GetString(5),
-                       dr.GetString(6),
-                       dr.GetString(7),
-                       dr.GetString(8),
-                       dr.GetString(9),
-                       Cliente.ObterPorId(dr.GetInt32(10))
-                    );
-            }
+            //while (dr.Read())
+            //{
+            //    endereco = new Endereco(
+            //           dr.GetInt32(0),
+            //           dr.GetString(1),
+            //           dr.GetString(2),
+            //           dr.GetString(3),
+            //           dr.GetString(4),
+            //           dr.GetString(5),
+            //           dr.GetString(6),
+            //           dr.GetString(7),
+            //           dr.GetString(8),
+            //           dr.GetString(9),
+            //           Cliente.ObterPorId(dr.GetInt32(10))
+            //        );
+            //}
 
             Banco.Fechar(cmd);
             return endereco;
