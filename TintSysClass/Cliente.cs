@@ -46,28 +46,19 @@ namespace TintSysClass
             this.Telefones = Telefones;   
         }
 
+        public Cliente(int id, string nome, string cpf, string email, bool ativo, List<Endereco> Enderecos, List<Telefone> Telefones)
+        {
+            this.Id = id;
+            this.Nome = nome;
+            this.Cpf = cpf;
+            this.Email = email;
+            this.Ativo = ativo;
+            this.Enderecos = Enderecos;
+            this.Telefones = Telefones;
+        }
+
         public Cliente(string nome, string cpf, string email, DateTime dataCad, bool ativo)
         {
-            this.Id = id;
-            this.Nome = nome;
-            this.Cpf = cpf;
-            this.Email = email;
-            this.DataCad = dataCad;
-            this.Ativo = ativo;
-        }
-
-        public Cliente(string nome, string cpf, string email, bool ativo)
-        {
-            this.Id = id;
-            this.Nome = nome;
-            this.Cpf = cpf;
-            this.Email = email;
-            this.Ativo = ativo;
-        }
-
-        public Cliente(string nome, string cpf, string email, DateTime dataCad)
-        {
-            this.Id = id;
             this.Nome = nome;
             this.Cpf = cpf;
             this.Email = email;
@@ -76,9 +67,6 @@ namespace TintSysClass
         }
 
         // Métodos
-        /// <summary>
-        /// Método para Inserir/Registrar dados do Cliente no Banco de Dados.
-        /// </summary>
         public void Inserir()
         {
             var cmd = Banco.Abrir();
@@ -97,9 +85,6 @@ namespace TintSysClass
         }
 
 
-        /// <summary>
-        /// Método para Atualizar/Alterar dados do Cliente no Banco de Dados.
-        /// </summary>
         public void Atualizar()
         {
             var cmd = Banco.Abrir();
@@ -112,10 +97,6 @@ namespace TintSysClass
         }
 
 
-        /// <summary>
-        /// Método para Arquivar dados do Cliente no Banco de Dados.
-        /// </summary>
-        /// <param name="_id">Parâmetro que identifica o dado a ser Arquivado.</param>
         public static void Arquivar(int _id)
         {
             var cmd = Banco.Abrir();
@@ -127,10 +108,6 @@ namespace TintSysClass
         }
 
 
-        /// <summary>
-        /// Método para Restaurar dados Arquivados do Cliente no Banco de Dados.
-        /// </summary>
-        /// <param name="_id">Parâmetro que identifica o dado a ser Restaurado.</param>
         public static void Restaurar(int _id)
         {
             var cmd = Banco.Abrir();
@@ -142,11 +119,6 @@ namespace TintSysClass
         }
 
 
-        /// <summary>
-        /// Método para Exluir permanentemente dados do Cliente no Banco de Dados.
-        /// </summary>
-        /// <param name="_id">Parâmetro que identifica o dado a ser Excluído permanentemente.</param> 
-        /// <returns>Retorna um valor 0, 1 ou 2. 0 para mostrar que o Cliente não foi excluído. 1 para mostrar que o Cliente foi excluído. 2 para mostrar que o Cliente não foi excluído por conta de uma chave estrangeira.</returns>
         public int Excluir(int _id)
         {
             int msg = 0;
@@ -173,13 +145,6 @@ namespace TintSysClass
         }
 
 
-        /// <summary>
-        /// Método que traz uma Lista de dados do Cliente que está cadastrado no Banco de Dados.
-        /// Se for entregue um parâmetro ele trará o dado relacionado ao especificado. Caso contrário
-        /// ele lista-rá todos os dados.
-        /// </summary>
-        /// <param name="_nome">Parâmetro que especifica o dado que irá Listar/Filtrar no banco de dados.</param>
-        /// <returns>Retorna uma lista de objetos com dados obtidos.</returns>
         public static List<Cliente> Listar(string _nome = "") 
         {
             List<Cliente> lista = new List<Cliente>();
@@ -193,28 +158,25 @@ namespace TintSysClass
 
             var dr = cmd.ExecuteReader();
 
-            //while (dr.Read())
-            //{
-            //    lista.Add(new Cliente(
-            //            dr.GetInt32(0),
-            //            dr.GetString(1),
-            //            dr.GetString(2),
-            //            dr.GetString(3),
-            //            dr.GetDateTime(4),
-            //            dr.GetBoolean(5)
-            //       ));
-            //}
+            while (dr.Read())
+            {
+                lista.Add(new Cliente(
+                        dr.GetInt32(0),
+                        dr.GetString(1),
+                        dr.GetString(2),
+                        dr.GetString(3),
+                        dr.GetDateTime(4),
+                        dr.GetBoolean(5),
+                        Endereco.ListarPorUsuario(dr.GetInt32(6)),
+                        Telefone.ListarPorUsuario(dr.GetInt32(7))
+                   ));
+            }
 
             Banco.Fechar(cmd);
             return lista;
         }
 
 
-        /// <summary>
-        /// Método que traz os dados do Cliente pelo ID especificado que está cadastrado no Banco de Dados.
-        /// </summary>
-        /// <param name="_id">Parâmetro que especifica o dado por ID que irá Listar no banco de dados.</param>
-        /// <returns>Retorna um objeto de Cliente com dados obtidos.</returns>
         public static Cliente ObterPorId(int _id)
         {
             Cliente cliente = null;
@@ -223,17 +185,19 @@ namespace TintSysClass
             cmd.CommandText = "select * from clientes where id = " + _id;
             var dr = cmd.ExecuteReader();
 
-            //while (dr.Read())
-            //{
-            //    cliente = new Cliente(
-            //            dr.GetInt32(0),
-            //            dr.GetString(1),
-            //            dr.GetString(2),
-            //            dr.GetString(3),
-            //            dr.GetDateTime(4),
-            //            dr.GetBoolean(5)
-            //        );
-            //}
+            while (dr.Read())
+            {
+                cliente = new Cliente(
+                        dr.GetInt32(0),
+                        dr.GetString(1),
+                        dr.GetString(2),
+                        dr.GetString(3),
+                        dr.GetDateTime(4),
+                        dr.GetBoolean(5),
+                        Endereco.ListarPorUsuario(dr.GetInt32(6)),
+                        Telefone.ListarPorUsuario(dr.GetInt32(7))
+                    );
+            }
 
             Banco.Fechar(cmd);
             return cliente;

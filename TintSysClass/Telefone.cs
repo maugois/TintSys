@@ -33,6 +33,13 @@ namespace TintSysClass
             this.cliente_id = cliente_id;
         }
 
+        public Telefone(int id, string numero, string tipo)
+        {
+            this.id = id;
+            this.numero = numero;
+            this.tipo = tipo;
+        }
+
         public Telefone(string numero, string tipo, int cliente_id)
         {
             this.numero = numero;
@@ -40,18 +47,21 @@ namespace TintSysClass
             this.cliente_id = cliente_id;
         }
 
-        // Métodos
-        /// <summary>
-        /// Método para Inserir/Registrar dados do Telefone do Cliente no Banco de Dados.
-        /// </summary>
-        public void Inserir(int _id_cliente)
+        public Telefone(string numero, string tipo)
+        {
+            this.numero = numero;
+            this.tipo = tipo;
+        }
+
+
+        public void Inserir(int _cliente_id)
         {
             var cmd = Banco.Abrir();
             cmd.CommandText = "insert telefones (numero, tipo, cliente_id) " +
                                "values(@numero, @tipo, @cliente_id)";
             cmd.Parameters.Add("@numero", MySqlDbType.VarChar).Value = Numero;
             cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = Tipo;
-            cmd.Parameters.Add("@cliente_id", MySqlDbType.Int32).Value = _id_cliente;
+            cmd.Parameters.Add("@cliente_id", MySqlDbType.Int32).Value = _cliente_id;
 
             cmd.ExecuteNonQuery();
 
@@ -62,9 +72,6 @@ namespace TintSysClass
         }
 
 
-        /// <summary>
-        /// Método para Atualizar/Alterar dados do Telefone do Cliente no Banco de Dados.
-        /// </summary>
         public void Atualizar()
         {
             var cmd = Banco.Abrir();
@@ -79,10 +86,6 @@ namespace TintSysClass
         }
 
 
-        /// <summary>
-        /// Método para Exluir permanentemente dados do Telefone do Cliente no Banco de Dados.
-        /// </summary>
-        /// <param name="_id">Parâmetro que identifica o dado a ser Excluído permanentemente.</param>
         public void Excluir(int _id)
         {
             var cmd = Banco.Abrir();
@@ -94,46 +97,33 @@ namespace TintSysClass
         }
 
 
-        /// <summary>
-        /// Método que traz uma Lista de dados do Telefone do Cliente que está cadastrado no Banco de Dados.
-        /// Se for entregue um parâmetro ele trará dados relacionado ao especificado. Caso contrário
-        /// ele lista-rá todos os dados.
-        /// </summary>
-        /// <param name="_filtro">Parâmetro que especifica o dado que irá Listar/Filtrar no banco de dados.</param>
-        /// <returns>Retorna uma lista de objetos com dados obtidos.</returns>
-        public static List<Telefone> Listar(string _filtro = "")
+        public static List<Telefone> ListarPorUsuario(int _cliente_id = 0)
         {
             List<Telefone> lista = new List<Telefone>();
 
             var cmd = Banco.Abrir();
 
-            if (_filtro != string.Empty)
-                cmd.CommandText = "select * from telefones nome like '%" + _filtro + "%'";
+            if (_cliente_id != 0)
+                cmd.CommandText = "select * from telefones where cliente_id = " + _cliente_id;
             else
                 cmd.CommandText = "select * from telefones";
 
             var dr = cmd.ExecuteReader();
 
-            //while (dr.Read())
-            //{
-            //    lista.Add(new Telefone(
-            //           dr.GetInt32(0),
-            //           dr.GetString(1),
-            //           dr.GetString(2),
-            //           Cliente.ObterPorId(dr.GetInt32(3))
-            //       ));
-            //}
+            while (dr.Read())
+            {
+                lista.Add(new Telefone(
+                       dr.GetInt32(0),
+                       dr.GetString(1),
+                       dr.GetString(2)
+                   ));
+            }
 
             Banco.Fechar(cmd);
             return lista;
         }
 
 
-        /// <summary>
-        /// Método que traz os dados do Telefone do Cliente pelo ID especificado que está cadastrado no Banco de Dados.
-        /// </summary>
-        /// <param name="_id">Parâmetro que especifica o dado por ID que irá Listar no banco de dados.</param>
-        /// <returns>Retorna um objeto de Usuario com dados obtidos.</returns>
         public static Telefone ObterPorId(int _id)
         {
             Telefone telefone = null;
@@ -142,15 +132,14 @@ namespace TintSysClass
             cmd.CommandText = "select * from telefones where id = " + _id;
             var dr = cmd.ExecuteReader();
 
-            //while (dr.Read())
-            //{
-            //    telefone = new Telefone(
-            //           dr.GetInt32(0),
-            //           dr.GetString(1),
-            //           dr.GetString(2),
-            //           Cliente.ObterPorId(dr.GetInt32(3))
-            //        );
-            //}
+            while (dr.Read())
+            {
+                telefone = new Telefone(
+                       dr.GetInt32(0),
+                       dr.GetString(1),
+                       dr.GetString(2)
+                    );
+            }
 
             Banco.Fechar(cmd);
             return telefone;

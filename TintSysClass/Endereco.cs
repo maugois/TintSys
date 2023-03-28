@@ -54,6 +54,20 @@ namespace TintSysClass
             this.cliente_id = cliente_id;
         }
 
+        public Endereco(int id, string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo)
+        {
+            this.id = id;
+            this.cep = cep;
+            this.logradouro = logradouro;
+            this.numero = numero;
+            this.complemento = complemento;
+            this.bairro = bairro;
+            this.cidade = cidade;
+            this.estado = estado;
+            this.uf = uf;
+            this.tipo = tipo;
+        }
+
         public Endereco(string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo, int cliente_id)
         {
             this.cep = cep;
@@ -68,10 +82,20 @@ namespace TintSysClass
             this.cliente_id = cliente_id;
         }
 
+        public Endereco(string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo)
+        {
+            this.cep = cep;
+            this.logradouro = logradouro;
+            this.numero = numero;
+            this.complemento = complemento;
+            this.bairro = bairro;
+            this.cidade = cidade;
+            this.estado = estado;
+            this.uf = uf;
+            this.tipo = tipo;
+        }
+
         // Métodos
-        /// <summary>
-        /// Método para Inserir/Registrar dados do Endereço do Cliente no Banco de Dados.
-        /// </summary>
         public void Inserir(int _cliente_id)
         {
             var cmd = Banco.Abrir();
@@ -97,9 +121,6 @@ namespace TintSysClass
         }
 
 
-        /// <summary>
-        /// Método para Atualizar/Alterar dados do Endereço do Cliente no Banco de Dados.
-        /// </summary>
         public void Atualizar()
         {
             var cmd = Banco.Abrir();
@@ -121,10 +142,6 @@ namespace TintSysClass
         }
 
 
-        /// <summary>
-        /// Método para Exluir permanentemente dados do Endereço do Cliente no Banco de Dados.
-        /// </summary>
-        /// <param name="_id">Parâmetro que identifica o dado a ser Excluído permanentemente.</param>
         public void Excluir(int _id)
         {
             var cmd = Banco.Abrir();
@@ -136,53 +153,40 @@ namespace TintSysClass
         }
 
 
-        /// <summary>
-        /// Método que traz uma Lista de dados do Endereço do Cliente que está cadastrado no Banco de Dados.
-        /// Se for entregue um parâmetro ele trará dados relacionado ao especificado. Caso contrário
-        /// ele lista-rá todos os dados.
-        /// </summary>
-        /// <param name="_filtro">Parâmetro que especifica o dado que irá Listar/Filtrar no banco de dados.</param>
-        /// <returns>Retorna uma lista de objetos com dados obtidos.</returns>
-        public static List<Endereco> Listar(string _filtro = "")
+        public static List<Endereco> ListarPorUsuario(int _cliente_id = 0)
         {
             List<Endereco> lista = new List<Endereco>();
 
             var cmd = Banco.Abrir();
 
-            if (_filtro != string.Empty)
-                cmd.CommandText = "select * from enderecos nome like '%" + _filtro + "%'";
+            if (_cliente_id != 0)
+                cmd.CommandText = "select * from enderecos where cliente_id = " + _cliente_id;
             else
                 cmd.CommandText = "select * from enderecos";
 
             var dr = cmd.ExecuteReader();
 
-            //while (dr.Read())
-            //{
-            //    lista.Add(new Endereco(
-            //           dr.GetInt32(0),
-            //           dr.GetString(1),
-            //           dr.GetString(2),
-            //           dr.GetString(3),
-            //           dr.GetString(4),
-            //           dr.GetString(5),
-            //           dr.GetString(6),
-            //           dr.GetString(7),
-            //           dr.GetString(8),
-            //           dr.GetString(9),
-            //           Cliente.ObterPorId(dr.GetInt32(10))
-            //       ));
-            //}
+            while (dr.Read())
+            {
+                lista.Add(new Endereco(
+                       dr.GetInt32(0),
+                       dr.GetString(1),
+                       dr.GetString(2),
+                       dr.GetString(3),
+                       dr.GetString(4),
+                       dr.GetString(5),
+                       dr.GetString(6),
+                       dr.GetString(7),
+                       dr.GetString(8),
+                       dr.GetString(9)
+                   ));
+            }
 
             Banco.Fechar(cmd);
             return lista;
         }
 
 
-        /// <summary>
-        /// Método que traz os dados do Endereço do Cliente pelo ID especificado que está cadastrado no Banco de Dados.
-        /// </summary>
-        /// <param name="_id">Parâmetro que especifica o dado por ID que irá Listar no banco de dados.</param>
-        /// <returns>Retorna um objeto de Usuario com dados obtidos.</returns>
         public static Endereco ObterPorId(int _id)
         {
             Endereco endereco = null;
@@ -191,22 +195,21 @@ namespace TintSysClass
             cmd.CommandText = "select * from enderecos where id = " + _id;
             var dr = cmd.ExecuteReader();
 
-            //while (dr.Read())
-            //{
-            //    endereco = new Endereco(
-            //           dr.GetInt32(0),
-            //           dr.GetString(1),
-            //           dr.GetString(2),
-            //           dr.GetString(3),
-            //           dr.GetString(4),
-            //           dr.GetString(5),
-            //           dr.GetString(6),
-            //           dr.GetString(7),
-            //           dr.GetString(8),
-            //           dr.GetString(9),
-            //           Cliente.ObterPorId(dr.GetInt32(10))
-            //        );
-            //}
+            while (dr.Read())
+            {
+                endereco = new Endereco(
+                        dr.GetInt32(0),
+                       dr.GetString(1),
+                       dr.GetString(2),
+                       dr.GetString(3),
+                       dr.GetString(4),
+                       dr.GetString(5),
+                       dr.GetString(6),
+                       dr.GetString(7),
+                       dr.GetString(8),
+                       dr.GetString(9)
+                       );
+            }
 
             Banco.Fechar(cmd);
             return endereco;
