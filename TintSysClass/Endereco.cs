@@ -20,7 +20,6 @@ namespace TintSysClass
         private string estado;
         private string uf;
         private string tipo;
-        private int cliente_id;
 
 
         // Propriedades
@@ -34,25 +33,9 @@ namespace TintSysClass
         public string Estado { get => estado; set => estado = value; }
         public string Uf { get => uf; set => uf = value; }
         public string Tipo { get => tipo; set => tipo = value; }
-        public int Cliente_id { get => cliente_id; set => cliente_id = value; }
 
         // Métodos Construtores
         public Endereco() { }
-
-        public Endereco(int id, string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo, int cliente_id)
-        {
-            this.id = id;
-            this.cep = cep;
-            this.logradouro = logradouro;
-            this.numero = numero;
-            this.complemento = complemento;
-            this.bairro = bairro;
-            this.cidade = cidade;
-            this.estado = estado;
-            this.uf = uf;
-            this.tipo = tipo;
-            this.cliente_id = cliente_id;
-        }
 
         public Endereco(int id, string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo)
         {
@@ -66,20 +49,6 @@ namespace TintSysClass
             this.estado = estado;
             this.uf = uf;
             this.tipo = tipo;
-        }
-
-        public Endereco(string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo, int cliente_id)
-        {
-            this.cep = cep;
-            this.logradouro = logradouro;
-            this.numero = numero;
-            this.complemento = complemento;
-            this.bairro = bairro;
-            this.cidade = cidade;
-            this.estado = estado;
-            this.uf = uf;
-            this.tipo = tipo;
-            this.cliente_id = cliente_id;
         }
 
         public Endereco(string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo)
@@ -153,7 +122,7 @@ namespace TintSysClass
         }
 
 
-        public static List<Endereco> ListarPorUsuario(int _cliente_id = 0)
+        public static List<Endereco> ListarPorUsuario(int _cliente_id)
         {
             List<Endereco> lista = new List<Endereco>();
 
