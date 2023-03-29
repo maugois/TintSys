@@ -44,7 +44,7 @@
             this.cadastrosToolStripMenuItem});
             this.mspPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mspPrincipal.Name = "mspPrincipal";
-            this.mspPrincipal.Size = new System.Drawing.Size(800, 24);
+            this.mspPrincipal.Size = new System.Drawing.Size(1264, 24);
             this.mspPrincipal.TabIndex = 1;
             this.mspPrincipal.Text = "mspPrincipal";
             this.mspPrincipal.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -63,13 +63,13 @@
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem.Text = "C&lientes";
             // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.produtosToolStripMenuItem.Text = "&Produtos";
             // 
             // usuáriosToolStripMenuItem
@@ -78,7 +78,7 @@
             this.manterToolStripMenuItem,
             this.listarToolStripMenuItem});
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuáriosToolStripMenuItem.Text = "U&suários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
             // 
@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1264, 881);
             this.Controls.Add(this.mspPrincipal);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mspPrincipal;

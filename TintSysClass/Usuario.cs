@@ -171,7 +171,7 @@ namespace TintSysClass
             cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
             cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = Email;
             cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = Senha;
-            cmd.Parameters.Add("@nome", MySqlDbType.Int32).Value = Nivel.Id;
+            cmd.Parameters.Add("@nivel", MySqlDbType.Int32).Value = Nivel.Id;
 
             cmd.ExecuteNonQuery();
 
