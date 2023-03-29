@@ -36,7 +36,6 @@ namespace TintSysDesk
         {
             FrmUsuarios frmUsuarios = new FrmUsuarios();
             frmUsuarios.MdiParent = this;
-            // frmUsuarios.ShowDialog();
             frmUsuarios.Show();
         }
     }
