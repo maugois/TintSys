@@ -80,7 +80,7 @@ namespace TintSysClass
         }
 
 
-        public static List<Telefone> ListarPorCliente(int _cliente_id)
+        public static List<Telefone> ListarPorCliente(int _cliente_id = 0)
         {
             List<Telefone> lista = new List<Telefone>();
 
