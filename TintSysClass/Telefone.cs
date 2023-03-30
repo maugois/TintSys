@@ -36,7 +36,7 @@ namespace TintSysClass
             this.tipo = tipo;
         }
 
-
+        // Métodos
         public void Inserir(int _cliente_id)
         {
             var cmd = Banco.Abrir();
@@ -80,7 +80,7 @@ namespace TintSysClass
         }
 
 
-        public static List<Telefone> ListarPorUsuario(int _cliente_id)
+        public static List<Telefone> ListarPorCliente(int _cliente_id)
         {
             List<Telefone> lista = new List<Telefone>();
 

@@ -66,6 +66,12 @@ namespace TintSysClass
             this.Ativo = ativo;
         }
 
+        public Cliente(int cliente_id)
+        {
+            Enderecos = Endereco.ListarPorCliente(cliente_id);
+            Telefones = Telefone.ListarPorCliente(cliente_id);
+        }
+
         // Métodos
         public void Inserir()
         {
@@ -80,6 +86,16 @@ namespace TintSysClass
 
             cmd.CommandText = "select @@identity";
             Id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            foreach (var endereco in Enderecos)
+            {
+                endereco.Inserir(Id);
+            }
+
+            foreach (var telefone in Telefones)
+            {
+                telefone.Inserir(Id);
+            }
 
             Banco.Fechar(cmd);
         }
@@ -145,16 +161,13 @@ namespace TintSysClass
         }
 
 
-        public static List<Cliente> Listar(string _nome = "") 
+        public static List<Cliente> Listar() 
         {
             List<Cliente> lista = new List<Cliente>();
 
             var cmd = Banco.Abrir();
 
-            if (_nome != string.Empty)
-                cmd.CommandText = "select * from clientes nome like '%" + _nome + "%'";
-            else
-                cmd.CommandText = "select * from clientes";
+            cmd.CommandText = "select * from clientes";
 
             var dr = cmd.ExecuteReader();
 
@@ -167,8 +180,8 @@ namespace TintSysClass
                         dr.GetString(3),
                         dr.GetDateTime(4),
                         dr.GetBoolean(5),
-                        Endereco.ListarPorUsuario(dr.GetInt32(6)),
-                        Telefone.ListarPorUsuario(dr.GetInt32(7))
+                        Endereco.ListarPorCliente(dr.GetInt32(6)),
+                        Telefone.ListarPorCliente(dr.GetInt32(7))
                    ));
             }
 
@@ -194,8 +207,8 @@ namespace TintSysClass
                         dr.GetString(3),
                         dr.GetDateTime(4),
                         dr.GetBoolean(5),
-                        Endereco.ListarPorUsuario(dr.GetInt32(6)),
-                        Telefone.ListarPorUsuario(dr.GetInt32(7))
+                        Endereco.ListarPorCliente(dr.GetInt32(6)),
+                        Telefone.ListarPorCliente(dr.GetInt32(7))
                     );
             }
 

@@ -122,7 +122,7 @@ namespace TintSysClass
         }
 
 
-        public static List<Endereco> ListarPorUsuario(int _cliente_id)
+        public static List<Endereco> ListarPorCliente(int _cliente_id)
         {
             List<Endereco> lista = new List<Endereco>();
 
