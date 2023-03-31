@@ -85,8 +85,7 @@ namespace TintSysClass
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
             
-            cmd.CommandText = "select * from niveis where id = @id";
-            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = _id;
+            cmd.CommandText = "select * from niveis where id = " + _id;
             
             var dr = cmd.ExecuteReader();
             Nivel nivel = null;
