@@ -189,9 +189,8 @@ namespace TintSysClass
         {
             var cmd = Banco.Abrir();
 
-            cmd.CommandText = "update usuarios set nome = @nome, senha = md5(@senha), nivel_id = @nivel where id = " + Id;
+            cmd.CommandText = "update usuarios set nome = @nome, nivel_id = @nivel where id = " + Id;
             cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
-            cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = Senha;
             cmd.Parameters.Add("@nivel", MySqlDbType.Int32).Value = Nivel.Id;
             cmd.ExecuteNonQuery();
 
@@ -232,12 +231,11 @@ namespace TintSysClass
         /// <summary>
         /// Método para Exluir permanentemente dados do Usuário no Banco de Dados.
         /// </summary>
-        /// <param name="_id">Parâmetro que identifica o dado a ser Excluído permanentemente.</param>
-        public void Excluir(int _id)
+        public void Excluir()
         {
             var cmd = Banco.Abrir();
 
-            cmd.CommandText = "delete from usuarios where id = " + _id;
+            cmd.CommandText = "delete from usuarios where id = " + Id;
             cmd.ExecuteNonQuery();
 
             Banco.Fechar(cmd);

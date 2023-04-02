@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TintSysClass;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace TintSysDesk
 {
@@ -37,6 +38,7 @@ namespace TintSysDesk
                 txtNome.Text = usuario.Nome;
                 txtEmail.Text = usuario.Email;
                 txtNivel.SelectedValue = usuario.Nivel.Id;
+                txtSenha.Text = usuario.Senha;
                 checkBox1.Checked = usuario.Ativo;
                 txtEmail.Enabled = false;
 
@@ -44,8 +46,11 @@ namespace TintSysDesk
             else
             {
                 MessageBox.Show("Usuário não localizado!");
+                txtId.Clear();
                 txtSigla.Clear();
                 txtNomeNivel.Clear();
+                txtSenha.Clear();
+                checkBox1.Checked = false;
                 txtIdNivel.Focus();
                 txtIdNivel.Clear();
             }
@@ -61,6 +66,9 @@ namespace TintSysDesk
 
             txtId.Text = usuario.Id.ToString();
 
+            txtNome.Clear();
+            txtEmail.Clear();
+            txtSenha.Clear();
             // Carrega lista do usuário
             CarregaListaGrid();
         }
@@ -154,7 +162,12 @@ namespace TintSysDesk
 
             nivel.Inserir();
 
+            txtIdNivel.Text = nivel.Id.ToString();
+            
+            txtNomeNivel.Clear();
+            txtSigla.Clear();
             CarregaTxtNivel();
+            CarregaListaGridNiveis();
         }
 
         private void btnConsultarNivel_Click(object sender, EventArgs e)
@@ -169,6 +182,7 @@ namespace TintSysDesk
             else
             {
                 MessageBox.Show("Nível não localizado!");
+                txtId.Clear();
                 txtSigla.Clear();
                 txtNomeNivel.Clear();
                 txtIdNivel.Focus();
@@ -193,6 +207,12 @@ namespace TintSysDesk
 
             nivel.Atualizar();
 
+            txtId.Clear();
+            txtSigla.Clear();
+            txtNomeNivel.Clear();
+            txtIdNivel.Focus();
+            txtIdNivel.Clear();
+
             CarregaListaGrid();
             CarregaTxtNivel();
             CarregaListaGridNiveis();
@@ -208,7 +228,15 @@ namespace TintSysDesk
             usuario.Nivel.Id = Convert.ToInt32(txtNivel.SelectedValue);
 
             usuario.Atualizar();
-            
+
+            txtId.Clear();
+            txtSigla.Clear();
+            txtNomeNivel.Clear();
+            txtSenha.Clear();
+            checkBox1.Checked = false;
+            txtIdNivel.Focus();
+            txtIdNivel.Clear();
+
             CarregaListaGrid();
         }
 

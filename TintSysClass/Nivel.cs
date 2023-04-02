@@ -27,6 +27,8 @@ namespace TintSysClass
         
         // Métodos construtores - Int x = new Int();
         public Nivel() { } // Vazio
+
+        public Nivel(int _id) { id = _id; }
         
         public Nivel(string _nome, string _sigla)
         {
@@ -146,9 +148,10 @@ namespace TintSysClass
 
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "update niveis set nome = @nome, sigla = @sigla where id = @id";
-            cmd.Parameters.Add("@nome", MySqlDbType.Int32).Value = Id;
+            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = Id;
             cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
             cmd.Parameters.Add("@sigla", MySqlDbType.VarChar).Value = Sigla;
+            cmd.ExecuteNonQuery();
             
             Banco.Fechar(cmd);
         }
@@ -157,15 +160,14 @@ namespace TintSysClass
         /// <summary>
         /// Método para Exluir permanentemente dados de Nível no Banco de Dados.
         /// </summary>
-        /// <param name="_id">Parâmetro que identifica o dado a ser Excluído permanentemente.</param>
         /// <returns>Retorna um valor 0, 1 ou 2. 0 para mostrar que o Nivel não foi excluído. 1 para mostrar que o Nivel foi excluído. 2 para mostrar que o Nivel não foi excluído por conta de uma chave estrangeira.</returns>
-        public int Excluir(int _id)
+        public int Excluir()
         {
             int msg = 0;
             var cmd = Banco.Abrir();
 
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from niveis where id = " + _id;
+            cmd.CommandText = "delete from niveis where id = " + Id;
 
             try
             {

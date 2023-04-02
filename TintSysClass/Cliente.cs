@@ -135,13 +135,13 @@ namespace TintSysClass
         }
 
 
-        public int Excluir(int _id)
+        public int Excluir()
         {
             int msg = 0;
             var cmd = Banco.Abrir();
 
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from clientes where id = " + _id;
+            cmd.CommandText = "delete from clientes where id = " + Id;
 
             try
             {
