@@ -225,7 +225,7 @@ namespace TintSysDesk
             usuario.Id = Convert.ToInt32(txtId.Text);
             usuario.Nome = txtNome.Text;
             usuario.Senha = txtSenha.Text;
-            usuario.Nivel.Id = Convert.ToInt32(txtNivel.SelectedValue);
+            usuario.Nivel = Nivel.ObterPorId(Convert.ToInt32(txtNivel.SelectedValue));
 
             usuario.Atualizar();
 

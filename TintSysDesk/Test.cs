@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TintSysClass;
 
 namespace TintSysDesk
 {
@@ -15,6 +16,21 @@ namespace TintSysDesk
         public Test()
         {
             InitializeComponent();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Test_Load(object sender, EventArgs e)
+        {
+            tpgEnderecos.Focus();
+        }
+
+        private void btnInserir_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
         }
     }
 }
