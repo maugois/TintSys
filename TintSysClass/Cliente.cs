@@ -57,13 +57,11 @@ namespace TintSysClass
             this.Telefones = Telefones;
         }
 
-        public Cliente(string nome, string cpf, string email, DateTime dataCad, bool ativo)
+        public Cliente(string nome, string cpf, string email)
         {
             this.Nome = nome;
             this.Cpf = cpf;
             this.Email = email;
-            this.DataCad = dataCad;
-            this.Ativo = ativo;
         }
 
         public Cliente(int cliente_id)
@@ -77,7 +75,7 @@ namespace TintSysClass
         {
             var cmd = Banco.Abrir();
             cmd.CommandText = "insert clientes (nome, cpf, email, datacad, ativo) " +
-                               "values(@nome, @cpf, @email, default, 1)";
+                               "values(@nome, @cpf, @email, default, default                   )";
             cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
             cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = Cpf;
             cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = Email;
