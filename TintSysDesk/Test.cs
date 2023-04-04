@@ -32,5 +32,10 @@ namespace TintSysDesk
         {
             Cliente cliente = new Cliente();
         }
+
+        private void tpgDados_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

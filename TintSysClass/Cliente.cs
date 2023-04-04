@@ -75,7 +75,7 @@ namespace TintSysClass
         {
             var cmd = Banco.Abrir();
             cmd.CommandText = "insert clientes (nome, cpf, email, datacad, ativo) " +
-                               "values(@nome, @cpf, @email, default, default                   )";
+                               "values(@nome, @cpf, @email, default, default)";
             cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
             cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = Cpf;
             cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = Email;

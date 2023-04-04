@@ -30,8 +30,8 @@
         {
             this.tbcClientes = new System.Windows.Forms.TabControl();
             this.tpgDados = new System.Windows.Forms.TabPage();
-            this.tpgEnderecos = new System.Windows.Forms.TabPage();
-            this.tpgTelefones = new System.Windows.Forms.TabPage();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.mstCpf = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,8 +43,8 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.mstCpf = new System.Windows.Forms.MaskedTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.tpgEnderecos = new System.Windows.Forms.TabPage();
+            this.tpgTelefones = new System.Windows.Forms.TabPage();
             this.tbcClientes.SuspendLayout();
             this.tpgDados.SuspendLayout();
             this.SuspendLayout();
@@ -54,10 +54,10 @@
             this.tbcClientes.Controls.Add(this.tpgDados);
             this.tbcClientes.Controls.Add(this.tpgEnderecos);
             this.tbcClientes.Controls.Add(this.tpgTelefones);
-            this.tbcClientes.Location = new System.Drawing.Point(12, 12);
+            this.tbcClientes.Location = new System.Drawing.Point(12, 67);
             this.tbcClientes.Name = "tbcClientes";
             this.tbcClientes.SelectedIndex = 0;
-            this.tbcClientes.Size = new System.Drawing.Size(486, 285);
+            this.tbcClientes.Size = new System.Drawing.Size(664, 371);
             this.tbcClientes.TabIndex = 0;
             // 
             // tpgDados
@@ -78,30 +78,28 @@
             this.tpgDados.Location = new System.Drawing.Point(4, 22);
             this.tpgDados.Name = "tpgDados";
             this.tpgDados.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgDados.Size = new System.Drawing.Size(478, 259);
+            this.tpgDados.Size = new System.Drawing.Size(656, 345);
             this.tpgDados.TabIndex = 0;
             this.tpgDados.Text = "Dados Pessoais";
             this.tpgDados.UseVisualStyleBackColor = true;
+            this.tpgDados.Click += new System.EventHandler(this.tpgDados_Click);
             // 
-            // tpgEnderecos
+            // dateTimePicker1
             // 
-            this.tpgEnderecos.Location = new System.Drawing.Point(4, 22);
-            this.tpgEnderecos.Name = "tpgEnderecos";
-            this.tpgEnderecos.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgEnderecos.Size = new System.Drawing.Size(478, 400);
-            this.tpgEnderecos.TabIndex = 1;
-            this.tpgEnderecos.Text = "Enderecos";
-            this.tpgEnderecos.UseVisualStyleBackColor = true;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(256, 137);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
+            this.dateTimePicker1.TabIndex = 28;
             // 
-            // tpgTelefones
+            // mstCpf
             // 
-            this.tpgTelefones.Location = new System.Drawing.Point(4, 22);
-            this.tpgTelefones.Name = "tpgTelefones";
-            this.tpgTelefones.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgTelefones.Size = new System.Drawing.Size(478, 400);
-            this.tpgTelefones.TabIndex = 2;
-            this.tpgTelefones.Text = "Telefones";
-            this.tpgTelefones.UseVisualStyleBackColor = true;
+            this.mstCpf.Location = new System.Drawing.Point(77, 136);
+            this.mstCpf.Mask = "000.000.000-00";
+            this.mstCpf.Name = "mstCpf";
+            this.mstCpf.Size = new System.Drawing.Size(98, 20);
+            this.mstCpf.TabIndex = 27;
+            this.mstCpf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -221,28 +219,31 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "ID";
             // 
-            // mstCpf
+            // tpgEnderecos
             // 
-            this.mstCpf.Location = new System.Drawing.Point(77, 136);
-            this.mstCpf.Mask = "000.000.000-00";
-            this.mstCpf.Name = "mstCpf";
-            this.mstCpf.Size = new System.Drawing.Size(98, 20);
-            this.mstCpf.TabIndex = 27;
-            this.mstCpf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tpgEnderecos.Location = new System.Drawing.Point(4, 22);
+            this.tpgEnderecos.Name = "tpgEnderecos";
+            this.tpgEnderecos.Padding = new System.Windows.Forms.Padding(3);
+            this.tpgEnderecos.Size = new System.Drawing.Size(656, 345);
+            this.tpgEnderecos.TabIndex = 1;
+            this.tpgEnderecos.Text = "Enderecos";
+            this.tpgEnderecos.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // tpgTelefones
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(256, 137);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
-            this.dateTimePicker1.TabIndex = 28;
+            this.tpgTelefones.Location = new System.Drawing.Point(4, 22);
+            this.tpgTelefones.Name = "tpgTelefones";
+            this.tpgTelefones.Padding = new System.Windows.Forms.Padding(3);
+            this.tpgTelefones.Size = new System.Drawing.Size(656, 345);
+            this.tpgTelefones.TabIndex = 2;
+            this.tpgTelefones.Text = "Telefones";
+            this.tpgTelefones.UseVisualStyleBackColor = true;
             // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1468, 450);
+            this.ClientSize = new System.Drawing.Size(688, 450);
             this.Controls.Add(this.tbcClientes);
             this.Name = "Test";
             this.Text = "  ";
