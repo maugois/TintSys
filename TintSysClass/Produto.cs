@@ -1,4 +1,4 @@
-﻿,,,using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,7 +70,7 @@ namespace TintSysClass
             cmd.Parameters.Add("@unidade", MySqlDbType.VarChar).Value = Unidade;
             cmd.Parameters.Add("@codbar", MySqlDbType.VarChar).Value = CodBar;
             cmd.Parameters.Add("@preco", MySqlDbType.Decimal).Value = Preco;
-            cmd.Parameters.Add("@desconto", MySqlDbType.Decimal).Value = Desconto;
+            cmd.Parameters.Add("@desconto", MySqlDbType.Decimal).Value = (Desconto/100);                                                                                                                                                                                                      
             
             cmd.ExecuteNonQuery();
 
@@ -80,7 +80,7 @@ namespace TintSysClass
             Banco.Fechar(cmd);
         }
 
-        public List<Produto> Listar(string descricao = "")
+        public static List<Produto> Listar(string descricao = "")
         {
             List<Produto> lista = new List<Produto>();
             
