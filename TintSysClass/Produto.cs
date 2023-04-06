@@ -142,35 +142,36 @@ namespace TintSysClass
             var cmd = Banco.Abrir();
 
             cmd.CommandText = "update produtos set " +
-                "descricao = @descricao, unidade = @unidade, codbar = @codbar, preco = @preco, desconto = @desconto where id = " + Id;
+                "descricao = @descricao, unidade = @unidade, codbar = @codbar, preco = @preco, desconto = @desconto, descontinuado = @descontinuado where id = " + Id;
 
             cmd.Parameters.Add("@descricao", MySqlDbType.VarChar).Value = Descricao;
             cmd.Parameters.Add("@unidade", MySqlDbType.VarChar).Value = Unidade;
             cmd.Parameters.Add("@codbar", MySqlDbType.VarChar).Value = CodBar;
             cmd.Parameters.Add("@preco", MySqlDbType.Decimal).Value = Preco;
             cmd.Parameters.Add("@desconto", MySqlDbType.Decimal).Value = Desconto;
+            cmd.Parameters.Add("@descontinuado", MySqlDbType.Bit).Value = Descontinuado;
 
             cmd.ExecuteNonQuery();
 
             Banco.Fechar(cmd);
         }
 
-        public void Arquivar()
+        public static void Arquivar(int _id)
         {
             var cmd = Banco.Abrir();
 
-            cmd.CommandText = "update produtos set descontinuado = 1 where id = " + Id;
+            cmd.CommandText = "update produtos set descontinuado = 1 where id = " + _id;
 
             cmd.ExecuteNonQuery();
 
             Banco.Fechar(cmd);
         }
 
-        public void Restaurar()
+        public static void Restaurar(int _id)
         {
             var cmd = Banco.Abrir();
 
-            cmd.CommandText = "update produtos set descontinuado = 0 where id = " + Id;
+            cmd.CommandText = "update produtos set descontinuado = 0 where id = " + _id;
 
             cmd.ExecuteNonQuery();
 
