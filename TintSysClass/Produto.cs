@@ -80,16 +80,16 @@ namespace TintSysClass
             Banco.Fechar(cmd);
         }
 
-        public static List<Produto> Listar(string descricao = "")
+        public static List<Produto> Listar(string descricao = "", int ativo = 0)
         {
             List<Produto> lista = new List<Produto>();
             
             MySqlCommand cmd = Banco.Abrir();
 
             if (descricao.Length > 0)
-                cmd.CommandText = "select * from produtos where descricao like '%"+ descricao +"%'";
+                cmd.CommandText = "select * from produtos where descricao like '%"+ descricao +"%' and descontinuado = " + ativo;
             else
-                cmd.CommandText = "select * from produtos";
+                cmd.CommandText = "select * from produtos where descontinuado = " + ativo;
 
             var dr = cmd.ExecuteReader();
 
