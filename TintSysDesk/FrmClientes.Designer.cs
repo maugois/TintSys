@@ -246,7 +246,7 @@
             this.clnEstado,
             this.clnUf,
             this.clnTipoEndereco});
-            this.dataGridView2.Location = new System.Drawing.Point(0, 50);
+            this.dataGridView2.Location = new System.Drawing.Point(6, 50);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
@@ -262,7 +262,7 @@
             this.clnIdTelefone,
             this.clnNumeroTelefone,
             this.clnTipoTelefone});
-            this.dataGridView3.Location = new System.Drawing.Point(15, 20);
+            this.dataGridView3.Location = new System.Drawing.Point(9, 20);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersVisible = false;
