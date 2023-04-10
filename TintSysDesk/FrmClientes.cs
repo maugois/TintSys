@@ -78,62 +78,210 @@ namespace TintSysDesk
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            CarregaGridListarAtivo();
+            CarregaGridListarInativo(); 
         }
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-
+            CarregaGridListarAtivo();
+            CarregaGridListarInativo();
         }
 
-        public void CarregaGridListar(string texto = "")
+        public void CarregaGridListarAtivo(string texto = "")
         {
-            List<Produto> lista = null;
+            List<Cliente> lista = null;
+            List<Endereco> listaEndereco = null;
+            List<Telefone> listaTelefone = null;
+            
             if (texto != string.Empty)
-                lista = Produto.Listar(texto, 0);
+                lista = Cliente.Listar(texto, 1);
             else
-                lista = Produto.Listar("", 0);
+                lista = Cliente.Listar("", 1);
+
+            listaEndereco = Endereco.ListarPorCliente();
+            listaTelefone = Telefone.ListarPorCliente();
 
             int cont = 0;
-            //dgvLista.Rows.Clear();
+            dgvListaCliente.Rows.Clear();
+            dgvEndereco.Rows.Clear();
+            dgvTelefone.Rows.Clear();
 
-            foreach (Produto item in lista)
+            foreach (Cliente item in lista)
             {
-                //dgvLista.Rows.Add();
-                //dgvLista.Rows[cont].Cells[0].Value = item.Id.ToString();
-                //dgvLista.Rows[cont].Cells[1].Value = item.Descricao;
-                //dgvLista.Rows[cont].Cells[2].Value = item.Unidade;
-                //dgvLista.Rows[cont].Cells[3].Value = item.CodBar;
-                //dgvLista.Rows[cont].Cells[4].Value = item.Preco.ToString();
-                //dgvLista.Rows[cont].Cells[5].Value = item.Desconto.ToString();
-                //dgvLista.Rows[cont].Cells[6].Value = item.Descontinuado;
+                dgvListaCliente.Rows.Add();
+                dgvListaCliente.Rows[cont].Cells[0].Value = item.Id.ToString();
+                dgvListaCliente.Rows[cont].Cells[1].Value = item.Nome;
+                dgvListaCliente.Rows[cont].Cells[2].Value = item.Cpf;
+                dgvListaCliente.Rows[cont].Cells[3].Value = item.Email;
+                dgvListaCliente.Rows[cont].Cells[4].Value = item.DataCad.ToString("dd-MM-yyy");
+                cont++;
+            }
+
+            foreach (Endereco item in listaEndereco)
+            {
+                dgvEndereco.Rows.Add();
+                dgvEndereco.Rows[cont].Cells[0].Value = item.Id.ToString();
+                dgvEndereco.Rows[cont].Cells[1].Value = item.Cep;
+                dgvEndereco.Rows[cont].Cells[2].Value = item.Logradouro;
+                dgvEndereco.Rows[cont].Cells[3].Value = item.Numero;
+                dgvEndereco.Rows[cont].Cells[4].Value = item.Complemento;
+                dgvEndereco.Rows[cont].Cells[5].Value = item.Bairro;
+                dgvEndereco.Rows[cont].Cells[6].Value = item.Cidade;
+                dgvEndereco.Rows[cont].Cells[7].Value = item.Estado;
+                dgvEndereco.Rows[cont].Cells[8].Value = item.Uf;
+                dgvEndereco.Rows[cont].Cells[9].Value = item.Tipo;
+                cont++;
+            }
+
+            foreach (Telefone item in listaTelefone)
+            {
+                dgvTelefone.Rows.Add();
+                dgvTelefone.Rows[cont].Cells[0].Value = item.Id.ToString();
+                dgvTelefone.Rows[cont].Cells[1].Value = item.Numero;
+                dgvTelefone.Rows[cont].Cells[2].Value = item.Tipo;
+                cont++;
+            }
+        }
+
+        public void CarregaGridListarInativo(string texto = "")
+        {
+            List<Cliente> lista = null;
+            List<Endereco> listaEndereco = null;
+            List<Telefone> listaTelefone = null;
+
+            if (texto != string.Empty)
+                lista = Cliente.Listar(texto);
+            else
+                lista = Cliente.Listar("");
+
+            listaEndereco = Endereco.ListarPorCliente();
+            listaTelefone = Telefone.ListarPorCliente();
+
+            int cont = 0;
+            dgvListaIdCliente.Rows.Clear();
+            dgvEndereco.Rows.Clear();
+            dgvTelefone.Rows.Clear();
+
+            foreach (Cliente item in lista)
+            {
+                dgvListaIdCliente.Rows.Add();
+                dgvListaIdCliente.Rows[cont].Cells[0].Value = item.Id.ToString();
+                dgvListaIdCliente.Rows[cont].Cells[1].Value = item.Nome;
+                dgvListaIdCliente.Rows[cont].Cells[2].Value = item.Cpf;
+                dgvListaIdCliente.Rows[cont].Cells[3].Value = item.Email;
+                dgvListaIdCliente.Rows[cont].Cells[4].Value = item.DataCad.ToString("dd-MM-yyy");
+                cont++;
+            }
+
+            foreach (Endereco item in listaEndereco)
+            {
+                dgvEnderecoInativo.Rows.Add();
+                dgvEnderecoInativo.Rows[cont].Cells[0].Value = item.Id.ToString();
+                dgvEnderecoInativo.Rows[cont].Cells[1].Value = item.Cep;
+                dgvEnderecoInativo.Rows[cont].Cells[2].Value = item.Logradouro;
+                dgvEnderecoInativo.Rows[cont].Cells[3].Value = item.Numero;
+                dgvEnderecoInativo.Rows[cont].Cells[4].Value = item.Complemento;
+                dgvEnderecoInativo.Rows[cont].Cells[5].Value = item.Bairro;
+                dgvEnderecoInativo.Rows[cont].Cells[6].Value = item.Cidade;
+                dgvEnderecoInativo.Rows[cont].Cells[7].Value = item.Estado;
+                dgvEnderecoInativo.Rows[cont].Cells[8].Value = item.Uf;
+                dgvEnderecoInativo.Rows[cont].Cells[9].Value = item.Tipo;
+                cont++;
+            }
+
+            foreach (Telefone item in listaTelefone)
+            {
+                dgvTelefoneInativo.Rows.Add();
+                dgvTelefoneInativo.Rows[cont].Cells[0].Value = item.Id.ToString();
+                dgvTelefoneInativo.Rows[cont].Cells[1].Value = item.Numero;
+                dgvTelefoneInativo.Rows[cont].Cells[2].Value = item.Tipo;
                 cont++;
             }
         }
 
         public void CarregaGridObterPorId(int id)
         {
-            //List<Produto> lista = null;
-            //if (lista != string.Empty)
-            //    lista = Produto.Listar(id);
-            //else
-            //    lista = Produto.Listar();
+            List<Cliente> lista = null;
+
+            lista = Cliente.ObterPorId(id);
 
             int cont = 0;
-            //dgvLista.Rows.Clear();
+            dgvListaCliente.Rows.Clear();
 
-            //foreach (Produto item in lista)
-            //{
-            //    //dgvLista.Rows.Add();
-            //    //dgvLista.Rows[cont].Cells[0].Value = item.Id.ToString();
-            //    //dgvLista.Rows[cont].Cells[1].Value = item.Descricao;
-            //    //dgvLista.Rows[cont].Cells[2].Value = item.Unidade;
-            //    //dgvLista.Rows[cont].Cells[3].Value = item.CodBar;
-            //    //dgvLista.Rows[cont].Cells[4].Value = item.Preco.ToString();
-            //    //dgvLista.Rows[cont].Cells[5].Value = item.Desconto.ToString();
-            //    //dgvLista.Rows[cont].Cells[6].Value = item.Descontinuado;
-            //    cont++;
-            //}
+            foreach (Cliente item in lista)
+            {
+                dgvListaCliente.Rows.Add();
+                dgvListaCliente.Rows[cont].Cells[0].Value = item.Id.ToString();
+                dgvListaCliente.Rows[cont].Cells[1].Value = item.Nome;
+                dgvListaCliente.Rows[cont].Cells[2].Value = item.Cpf;
+                dgvListaCliente.Rows[cont].Cells[3].Value = item.Email;
+                dgvListaCliente.Rows[cont].Cells[4].Value = item.DataCad.ToString("dd-MM-yyy");
+                
+                dgvEndereco.Rows.Add();
+                dgvEndereco.Rows[cont].Cells[0].Value = item.Enderecos.ToString();
+                dgvEndereco.Rows[cont].Cells[1].Value = item.Enderecos;
+                dgvEndereco.Rows[cont].Cells[2].Value = item.Enderecos;
+                dgvEndereco.Rows[cont].Cells[3].Value = item.Enderecos;
+                dgvEndereco.Rows[cont].Cells[4].Value = item.Enderecos;
+                dgvEndereco.Rows[cont].Cells[5].Value = item.Enderecos;
+                dgvEndereco.Rows[cont].Cells[6].Value = item.Enderecos;
+                dgvEndereco.Rows[cont].Cells[7].Value = item.Enderecos;
+                dgvEndereco.Rows[cont].Cells[8].Value = item.Enderecos;
+                dgvEndereco.Rows[cont].Cells[9].Value = item.Enderecos;
+
+                dgvTelefone.Rows.Add();
+                dgvTelefone.Rows[cont].Cells[0].Value = item.Telefones.ToString();
+                dgvTelefone.Rows[cont].Cells[1].Value = item.Telefones;
+                dgvTelefone.Rows[cont].Cells[2].Value = item.Telefones;
+
+                cont++;
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (btnBuscar.Text == "...")
+            {
+                txtId.ReadOnly = false;
+
+                txtId.Focus();
+
+                btnBuscar.Text = "Obter";
+            }
+            else if (txtId.Text != String.Empty)
+            {
+                txtId.ReadOnly = true;
+
+                btnBuscar.Text = "...";
+
+                CarregaGridObterPorId(int.Parse(txtId.Text));
+            }
+        }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPesquisarAtivo.Text.Length > 1)
+            {
+                CarregaGridListarAtivo(txtPesquisarAtivo.Text);
+            }
+            else if (txtPesquisarAtivo.Text.Length < 2)
+            {
+                CarregaGridListarAtivo();
+            }
+        }
+
+        private void txtPesquisarInativos_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPesquisarInativos.Text.Length > 1)
+            {
+                CarregaGridListarInativo(txtPesquisarInativos.Text);
+            }
+            else if (txtPesquisarInativos.Text.Length < 2)
+            {
+                CarregaGridListarInativo();
+            }
         }
     }
 }

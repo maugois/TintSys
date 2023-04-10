@@ -46,6 +46,18 @@ namespace TintSysClass
             this.Telefones = Telefones;   
         }
 
+        public Cliente(int id, string nome, string cpf, string email, DateTime dataCad, bool ativo)
+        {
+            this.Id = id;
+            this.Nome = nome;
+            this.Cpf = cpf;
+            this.Email = email;
+            this.DataCad = dataCad;
+            this.Ativo = ativo;
+            this.Enderecos = Enderecos;
+            this.Telefones = Telefones;
+        }
+
         public Cliente(int id, string nome, string cpf, string email, bool ativo, List<Endereco> Enderecos, List<Telefone> Telefones)
         {
             this.Id = id;
@@ -159,13 +171,16 @@ namespace TintSysClass
         }
 
 
-        public static List<Cliente> Listar() 
+        public static List<Cliente> Listar(string nome = "", int ativo = 0) 
         {
             List<Cliente> lista = new List<Cliente>();
 
             var cmd = Banco.Abrir();
 
-            cmd.CommandText = "select * from clientes";
+            if (nome.Length > 0)
+                cmd.CommandText = "select * from clientes where nome like '%" + nome + "%' and ativo = " + ativo;
+            else
+                cmd.CommandText = "select * from clientes where ativo = " + ativo;
 
             var dr = cmd.ExecuteReader();
 
@@ -177,9 +192,7 @@ namespace TintSysClass
                         dr.GetString(2),
                         dr.GetString(3),
                         dr.GetDateTime(4),
-                        dr.GetBoolean(5),
-                        Endereco.ListarPorCliente(dr.GetInt32(6)),
-                        Telefone.ListarPorCliente(dr.GetInt32(7))
+                        dr.GetBoolean(5)
                    ));
             }
 
@@ -188,9 +201,9 @@ namespace TintSysClass
         }
 
 
-        public static Cliente ObterPorId(int _id)
+        public static List<Cliente> ObterPorId(int _id)
         {
-            Cliente cliente = null;
+            List<Cliente> lista = new List<Cliente>();
             var cmd = Banco.Abrir();
 
             cmd.CommandText = "select * from clientes where id = " + _id;
@@ -198,20 +211,20 @@ namespace TintSysClass
 
             while (dr.Read())
             {
-                cliente = new Cliente(
+                lista.Add(new Cliente(
                         dr.GetInt32(0),
                         dr.GetString(1),
                         dr.GetString(2),
                         dr.GetString(3),
                         dr.GetDateTime(4),
                         dr.GetBoolean(5),
-                        Endereco.ListarPorCliente(dr.GetInt32(6)),
-                        Telefone.ListarPorCliente(dr.GetInt32(7))
-                    );
+                        Endereco.ListarPorCliente(_id),
+                        Telefone.ListarPorCliente(_id)
+                    ));
             }
 
             Banco.Fechar(cmd);
-            return cliente;
+            return lista;
         }
     }
 }
