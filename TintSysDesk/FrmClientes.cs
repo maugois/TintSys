@@ -189,7 +189,7 @@ namespace TintSysDesk
 
             listaEndereco = Endereco.ListarPorCliente();
             listaTelefone = Telefone.ListarPorCliente();
-
+            
             int cont = 0;
             dgvListaIdCliente.Rows.Clear();
             dgvEndereco.Rows.Clear();
@@ -263,7 +263,7 @@ namespace TintSysDesk
         {
             List<Cliente> lista = null;
 
-            lista = Cliente.ObterPorId(id);
+            lista = Cliente.ObterPorIdLista(id);
 
             int cont = 0;
             dgvListaCliente.Rows.Clear();

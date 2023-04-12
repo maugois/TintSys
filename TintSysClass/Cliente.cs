@@ -192,7 +192,9 @@ namespace TintSysClass
                         dr.GetString(2),
                         dr.GetString(3),
                         dr.GetDateTime(4),
-                        dr.GetBoolean(5)
+                        dr.GetBoolean(5),
+                        Endereco.ListarPorCliente(),
+                        Telefone.ListarPorCliente()
                    ));
             }
 
@@ -201,7 +203,33 @@ namespace TintSysClass
         }
 
 
-        public static List<Cliente> ObterPorId(int _id)
+        public static Cliente ObterPorId(int _id)
+        {
+            Cliente cliente = null;
+            var cmd = Banco.Abrir();
+
+            cmd.CommandText = "select * from clientes where id = " + _id;
+            var dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                cliente = new Cliente(
+                        dr.GetInt32(0),
+                        dr.GetString(1),
+                        dr.GetString(2),
+                        dr.GetString(3),
+                        dr.GetDateTime(4),
+                        dr.GetBoolean(5),
+                        Endereco.ListarPorCliente(_id),
+                        Telefone.ListarPorCliente(_id)
+                    );
+            }
+
+            Banco.Fechar(cmd);
+            return cliente;
+        }
+
+        public static List<Cliente> ObterPorIdLista(int _id)
         {
             List<Cliente> lista = new List<Cliente>();
             var cmd = Banco.Abrir();
