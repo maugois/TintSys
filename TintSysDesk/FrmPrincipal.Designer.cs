@@ -108,6 +108,7 @@
             this.MainMenuStrip = this.mspPrincipal;
             this.Name = "FrmPrincipal";
             this.Text = "TINT SYS CLASS 1.0";
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.mspPrincipal.ResumeLayout(false);
             this.mspPrincipal.PerformLayout();
             this.ResumeLayout(false);

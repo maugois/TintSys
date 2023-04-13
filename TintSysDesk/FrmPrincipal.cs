@@ -52,5 +52,10 @@ namespace TintSysDesk
             frmProdutos.MdiParent = this;
             frmProdutos.Show();
         }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
