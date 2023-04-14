@@ -234,7 +234,9 @@ namespace TintSysClass
             List<Cliente> lista = new List<Cliente>();
             var cmd = Banco.Abrir();
 
-            cmd.CommandText = "select * from clientes where id = " + _id;
+            cmd.CommandText = "select * from clientes where id = @id";
+            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = _id;
+
             var dr = cmd.ExecuteReader();
 
             while (dr.Read())

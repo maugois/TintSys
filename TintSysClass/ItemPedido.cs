@@ -43,9 +43,10 @@ namespace TintSysClass
         {
             var cmd = Banco.Abrir();
 
-            cmd.CommandText = "insert pedidos (pedido_id, produto_id, preco, quantidade, desconto) " +
+            cmd.CommandText = "insert itempedido (pedido_id, produto_id, preco, quantidade, desconto) " +
                 "values (@pedido_id, @produto_id, @preco, @quantidade, @desconto)";
 
+            cmd.Parameters.Clear();
             cmd.Parameters.Add("@pedido_id", MySqlDbType.Int32).Value = Id;
             cmd.Parameters.Add("@produto_id", MySqlDbType.Int32).Value = Produto.Id;
             cmd.Parameters.Add("@preco", MySqlDbType.Decimal).Value = Produto.Preco;
