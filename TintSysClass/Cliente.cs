@@ -171,16 +171,16 @@ namespace TintSysClass
         }
 
 
-        public static List<Cliente> Listar(string nome = "", int ativo = 0) 
+        public static List<Cliente> Listar(string nome = "") 
         {
             List<Cliente> lista = new List<Cliente>();
 
             var cmd = Banco.Abrir();
 
             if (nome.Length > 0)
-                cmd.CommandText = "select * from clientes where nome like '%" + nome + "%' and ativo = " + ativo;
+                cmd.CommandText = "select * from clientes where nome like '%" + nome + "%'";
             else
-                cmd.CommandText = "select * from clientes where ativo = " + ativo;
+                cmd.CommandText = "select * from clientes";
 
             var dr = cmd.ExecuteReader();
 

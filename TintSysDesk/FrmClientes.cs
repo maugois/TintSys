@@ -79,27 +79,28 @@ namespace TintSysDesk
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CarregaGridListarAtivo();
+            CarregaGridListar();
             txtId.Clear();
             txtPesquisarAtivo.Clear();
+            chkInativos.Checked = false;
         }
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
             
-            CarregaGridListarAtivo();
+            CarregaGridListar();
         }
 
-        public void CarregaGridListarAtivo(string texto = "")
+        public void CarregaGridListar(string texto = "")
         {
             List<Cliente> lista = null;
             List<Endereco> listaEndereco = null;
             List<Telefone> listaTelefone = null;
             
             if (texto != string.Empty)
-                lista = Cliente.Listar(texto, 1);
+                lista = Cliente.Listar(texto);
             else
-                lista = Cliente.Listar("", 1);
+                lista = Cliente.Listar();
 
             listaEndereco = Endereco.ListarPorCliente();
             listaTelefone = Telefone.ListarPorCliente();
@@ -120,58 +121,30 @@ namespace TintSysDesk
                 cont++;
             }
 
-            if (listaEndereco != null)
-            {
-                foreach (Endereco item in listaEndereco)
-                {
-                    dgvEndereco.Rows.Add();
-                    dgvEndereco.Rows[cont].Cells[0].Value = item.Id.ToString();
-                    dgvEndereco.Rows[cont].Cells[1].Value = item.Cep;
-                    dgvEndereco.Rows[cont].Cells[2].Value = item.Logradouro;
-                    dgvEndereco.Rows[cont].Cells[3].Value = item.Numero;
-                    dgvEndereco.Rows[cont].Cells[4].Value = item.Complemento;
-                    dgvEndereco.Rows[cont].Cells[5].Value = item.Bairro;
-                    dgvEndereco.Rows[cont].Cells[6].Value = item.Cidade;
-                    dgvEndereco.Rows[cont].Cells[7].Value = item.Estado;
-                    dgvEndereco.Rows[cont].Cells[8].Value = item.Uf;
-                    dgvEndereco.Rows[cont].Cells[9].Value = item.Tipo;
-                    cont++;
-                }
-            }
-            else
+            foreach (Endereco item in listaEndereco)
             {
                 dgvEndereco.Rows.Add();
-                dgvEndereco.Rows[1].Cells[0].Value = "Não há endereços cadastrados";
-                dgvEndereco.Rows[1].Cells[1].Value = "Não há endereços cadastrados";
-                dgvEndereco.Rows[1].Cells[2].Value = "Não há endereços cadastrados";
-                dgvEndereco.Rows[1].Cells[3].Value = "Não há endereços cadastrados";
-                dgvEndereco.Rows[1].Cells[4].Value = "Não há endereços cadastrados";
-                dgvEndereco.Rows[1].Cells[5].Value = "Não há endereços cadastrados";
-                dgvEndereco.Rows[1].Cells[6].Value = "Não há endereços cadastrados";
-                dgvEndereco.Rows[1].Cells[7].Value = "Não há endereços cadastrados";
-                dgvEndereco.Rows[1].Cells[8].Value = "Não há endereços cadastrados";
-                dgvEndereco.Rows[1].Cells[9].Value = "Não há endereços cadastrados";
+                dgvEndereco.Rows[cont].Cells[0].Value = item.Id.ToString();
+                dgvEndereco.Rows[cont].Cells[1].Value = item.Cep;
+                dgvEndereco.Rows[cont].Cells[2].Value = item.Logradouro;
+                dgvEndereco.Rows[cont].Cells[3].Value = item.Numero;
+                dgvEndereco.Rows[cont].Cells[4].Value = item.Complemento;
+                dgvEndereco.Rows[cont].Cells[5].Value = item.Bairro;
+                dgvEndereco.Rows[cont].Cells[6].Value = item.Cidade;
+                dgvEndereco.Rows[cont].Cells[7].Value = item.Estado;
+                dgvEndereco.Rows[cont].Cells[8].Value = item.Uf;
+                dgvEndereco.Rows[cont].Cells[9].Value = item.Tipo;
+                cont++;
             }
 
-            if (listaTelefone != null)
-            {
-                foreach (Telefone item in listaTelefone)
-                {
-                    dgvTelefone.Rows.Add();
-                    dgvTelefone.Rows[cont].Cells[0].Value = item.Id.ToString();
-                    dgvTelefone.Rows[cont].Cells[1].Value = item.Numero;
-                    dgvTelefone.Rows[cont].Cells[2].Value = item.Tipo;
-                    cont++;
-                }
-            } 
-            else
+            foreach (Telefone item in listaTelefone)
             {
                 dgvTelefone.Rows.Add();
-                dgvTelefone.Rows[1].Cells[0].Value = "Não há telefones cadastrados";
-                dgvTelefone.Rows[1].Cells[1].Value = "Não há telefones cadastrados";
-                dgvTelefone.Rows[1].Cells[2].Value = "Não há telefones cadastrados";
+                dgvTelefone.Rows[cont].Cells[0].Value = item.Id.ToString();
+                dgvTelefone.Rows[cont].Cells[1].Value = item.Numero;
+                dgvTelefone.Rows[cont].Cells[2].Value = item.Tipo;
+                cont++;
             }
-
         }
 
         public void CarregaGridObterPorId(int id)
@@ -238,11 +211,11 @@ namespace TintSysDesk
         {
             if (txtPesquisarAtivo.Text.Length > 1)
             {
-                CarregaGridListarAtivo(txtPesquisarAtivo.Text);
+                CarregaGridListar(txtPesquisarAtivo.Text);
             }
             else if (txtPesquisarAtivo.Text.Length < 2)
             {
-                CarregaGridListarAtivo();
+                CarregaGridListar();
             }
         }
 

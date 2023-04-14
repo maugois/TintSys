@@ -31,21 +31,8 @@
             this.pnlConsulta = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvTelefone = new System.Windows.Forms.DataGridView();
-            this.clnIdTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNumeroTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnTipoTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvEndereco = new System.Windows.Forms.DataGridView();
-            this.clnIdEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnTipoEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtPesquisarAtivo = new System.Windows.Forms.TextBox();
@@ -75,7 +62,20 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tabEnderecos = new System.Windows.Forms.TabPage();
             this.tabTelefones = new System.Windows.Forms.TabPage();
-            this.chkAtivos = new System.Windows.Forms.CheckBox();
+            this.chkInativos = new System.Windows.Forms.CheckBox();
+            this.clnIdTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNumeroTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnTipoTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnIdEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnTipoEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlConsulta.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefone)).BeginInit();
@@ -127,30 +127,6 @@
             this.dgvTelefone.Size = new System.Drawing.Size(372, 136);
             this.dgvTelefone.TabIndex = 19;
             // 
-            // clnIdTelefone
-            // 
-            this.clnIdTelefone.Frozen = true;
-            this.clnIdTelefone.HeaderText = "Id";
-            this.clnIdTelefone.Name = "clnIdTelefone";
-            this.clnIdTelefone.ReadOnly = true;
-            this.clnIdTelefone.Width = 40;
-            // 
-            // clnNumeroTelefone
-            // 
-            this.clnNumeroTelefone.Frozen = true;
-            this.clnNumeroTelefone.HeaderText = "Numero";
-            this.clnNumeroTelefone.Name = "clnNumeroTelefone";
-            this.clnNumeroTelefone.ReadOnly = true;
-            this.clnNumeroTelefone.Width = 130;
-            // 
-            // clnTipoTelefone
-            // 
-            this.clnTipoTelefone.Frozen = true;
-            this.clnTipoTelefone.HeaderText = "Tipo";
-            this.clnTipoTelefone.Name = "clnTipoTelefone";
-            this.clnTipoTelefone.ReadOnly = true;
-            this.clnTipoTelefone.Width = 130;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvEndereco);
@@ -185,89 +161,9 @@
             this.dgvEndereco.Size = new System.Drawing.Size(617, 227);
             this.dgvEndereco.TabIndex = 18;
             // 
-            // clnIdEndereco
-            // 
-            this.clnIdEndereco.Frozen = true;
-            this.clnIdEndereco.HeaderText = "Id";
-            this.clnIdEndereco.Name = "clnIdEndereco";
-            this.clnIdEndereco.ReadOnly = true;
-            this.clnIdEndereco.Width = 29;
-            // 
-            // clnCep
-            // 
-            this.clnCep.Frozen = true;
-            this.clnCep.HeaderText = "CEP";
-            this.clnCep.Name = "clnCep";
-            this.clnCep.ReadOnly = true;
-            this.clnCep.Width = 50;
-            // 
-            // clnLogradouro
-            // 
-            this.clnLogradouro.Frozen = true;
-            this.clnLogradouro.HeaderText = "Logradouro";
-            this.clnLogradouro.Name = "clnLogradouro";
-            this.clnLogradouro.ReadOnly = true;
-            this.clnLogradouro.Width = 150;
-            // 
-            // clnNumero
-            // 
-            this.clnNumero.Frozen = true;
-            this.clnNumero.HeaderText = "Número";
-            this.clnNumero.Name = "clnNumero";
-            this.clnNumero.ReadOnly = true;
-            this.clnNumero.Width = 50;
-            // 
-            // clnComplemento
-            // 
-            this.clnComplemento.Frozen = true;
-            this.clnComplemento.HeaderText = "Complemento";
-            this.clnComplemento.Name = "clnComplemento";
-            this.clnComplemento.ReadOnly = true;
-            this.clnComplemento.Width = 80;
-            // 
-            // clnBairro
-            // 
-            this.clnBairro.Frozen = true;
-            this.clnBairro.HeaderText = "Bairro";
-            this.clnBairro.Name = "clnBairro";
-            this.clnBairro.ReadOnly = true;
-            this.clnBairro.Width = 50;
-            // 
-            // clnCidade
-            // 
-            this.clnCidade.Frozen = true;
-            this.clnCidade.HeaderText = "Cidade";
-            this.clnCidade.Name = "clnCidade";
-            this.clnCidade.ReadOnly = true;
-            this.clnCidade.Width = 50;
-            // 
-            // clnEstado
-            // 
-            this.clnEstado.Frozen = true;
-            this.clnEstado.HeaderText = "Estado";
-            this.clnEstado.Name = "clnEstado";
-            this.clnEstado.ReadOnly = true;
-            this.clnEstado.Width = 50;
-            // 
-            // clnUf
-            // 
-            this.clnUf.Frozen = true;
-            this.clnUf.HeaderText = "UF";
-            this.clnUf.Name = "clnUf";
-            this.clnUf.ReadOnly = true;
-            this.clnUf.Width = 50;
-            // 
-            // clnTipoEndereco
-            // 
-            this.clnTipoEndereco.Frozen = true;
-            this.clnTipoEndereco.HeaderText = "Tipos";
-            this.clnTipoEndereco.Name = "clnTipoEndereco";
-            this.clnTipoEndereco.ReadOnly = true;
-            this.clnTipoEndereco.Width = 50;
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.chkAtivos);
+            this.groupBox1.Controls.Add(this.chkInativos);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtPesquisarAtivo);
             this.groupBox1.Controls.Add(this.btnBuscar);
@@ -445,7 +341,7 @@
             this.tbcInserir.Controls.Add(this.tabDadosPessoais);
             this.tbcInserir.Controls.Add(this.tabEnderecos);
             this.tbcInserir.Controls.Add(this.tabTelefones);
-            this.tbcInserir.Location = new System.Drawing.Point(1214, 24);
+            this.tbcInserir.Location = new System.Drawing.Point(1248, 29);
             this.tbcInserir.Name = "tbcInserir";
             this.tbcInserir.SelectedIndex = 0;
             this.tbcInserir.Size = new System.Drawing.Size(626, 447);
@@ -574,15 +470,119 @@
             this.tabTelefones.Text = "Telefones";
             this.tabTelefones.UseVisualStyleBackColor = true;
             // 
-            // chkAtivos
+            // chkInativos
             // 
-            this.chkAtivos.AutoSize = true;
-            this.chkAtivos.Location = new System.Drawing.Point(375, 14);
-            this.chkAtivos.Name = "chkAtivos";
-            this.chkAtivos.Size = new System.Drawing.Size(90, 17);
-            this.chkAtivos.TabIndex = 30;
-            this.chkAtivos.Text = "Listar inativos";
-            this.chkAtivos.UseVisualStyleBackColor = true;
+            this.chkInativos.AutoSize = true;
+            this.chkInativos.Location = new System.Drawing.Point(375, 14);
+            this.chkInativos.Name = "chkInativos";
+            this.chkInativos.Size = new System.Drawing.Size(90, 17);
+            this.chkInativos.TabIndex = 30;
+            this.chkInativos.Text = "Listar inativos";
+            this.chkInativos.UseVisualStyleBackColor = true;
+            // 
+            // clnIdTelefone
+            // 
+            this.clnIdTelefone.Frozen = true;
+            this.clnIdTelefone.HeaderText = "Id";
+            this.clnIdTelefone.Name = "clnIdTelefone";
+            this.clnIdTelefone.ReadOnly = true;
+            this.clnIdTelefone.Width = 40;
+            // 
+            // clnNumeroTelefone
+            // 
+            this.clnNumeroTelefone.Frozen = true;
+            this.clnNumeroTelefone.HeaderText = "Numero";
+            this.clnNumeroTelefone.Name = "clnNumeroTelefone";
+            this.clnNumeroTelefone.ReadOnly = true;
+            this.clnNumeroTelefone.Width = 166;
+            // 
+            // clnTipoTelefone
+            // 
+            this.clnTipoTelefone.Frozen = true;
+            this.clnTipoTelefone.HeaderText = "Tipo";
+            this.clnTipoTelefone.Name = "clnTipoTelefone";
+            this.clnTipoTelefone.ReadOnly = true;
+            this.clnTipoTelefone.Width = 165;
+            // 
+            // clnIdEndereco
+            // 
+            this.clnIdEndereco.Frozen = true;
+            this.clnIdEndereco.HeaderText = "Id";
+            this.clnIdEndereco.Name = "clnIdEndereco";
+            this.clnIdEndereco.ReadOnly = true;
+            this.clnIdEndereco.Width = 29;
+            // 
+            // clnCep
+            // 
+            this.clnCep.Frozen = true;
+            this.clnCep.HeaderText = "CEP";
+            this.clnCep.Name = "clnCep";
+            this.clnCep.ReadOnly = true;
+            this.clnCep.Width = 50;
+            // 
+            // clnLogradouro
+            // 
+            this.clnLogradouro.Frozen = true;
+            this.clnLogradouro.HeaderText = "Logradouro";
+            this.clnLogradouro.Name = "clnLogradouro";
+            this.clnLogradouro.ReadOnly = true;
+            this.clnLogradouro.Width = 150;
+            // 
+            // clnNumero
+            // 
+            this.clnNumero.Frozen = true;
+            this.clnNumero.HeaderText = "Número";
+            this.clnNumero.Name = "clnNumero";
+            this.clnNumero.ReadOnly = true;
+            this.clnNumero.Width = 60;
+            // 
+            // clnComplemento
+            // 
+            this.clnComplemento.Frozen = true;
+            this.clnComplemento.HeaderText = "Complemento";
+            this.clnComplemento.Name = "clnComplemento";
+            this.clnComplemento.ReadOnly = true;
+            this.clnComplemento.Width = 80;
+            // 
+            // clnBairro
+            // 
+            this.clnBairro.Frozen = true;
+            this.clnBairro.HeaderText = "Bairro";
+            this.clnBairro.Name = "clnBairro";
+            this.clnBairro.ReadOnly = true;
+            this.clnBairro.Width = 50;
+            // 
+            // clnCidade
+            // 
+            this.clnCidade.Frozen = true;
+            this.clnCidade.HeaderText = "Cidade";
+            this.clnCidade.Name = "clnCidade";
+            this.clnCidade.ReadOnly = true;
+            this.clnCidade.Width = 50;
+            // 
+            // clnEstado
+            // 
+            this.clnEstado.Frozen = true;
+            this.clnEstado.HeaderText = "Estado";
+            this.clnEstado.Name = "clnEstado";
+            this.clnEstado.ReadOnly = true;
+            this.clnEstado.Width = 50;
+            // 
+            // clnUf
+            // 
+            this.clnUf.Frozen = true;
+            this.clnUf.HeaderText = "UF";
+            this.clnUf.Name = "clnUf";
+            this.clnUf.ReadOnly = true;
+            this.clnUf.Width = 50;
+            // 
+            // clnTipoEndereco
+            // 
+            this.clnTipoEndereco.Frozen = true;
+            this.clnTipoEndereco.HeaderText = "Tipos";
+            this.clnTipoEndereco.Name = "clnTipoEndereco";
+            this.clnTipoEndereco.ReadOnly = true;
+            this.clnTipoEndereco.Width = 50;
             // 
             // FrmClientes
             // 
@@ -630,9 +630,6 @@
         private System.Windows.Forms.DataGridView dgvTelefone;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvEndereco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnIdTelefone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnNumeroTelefone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnTipoTelefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCpf;
@@ -640,16 +637,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtPesquisarAtivo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnIdEndereco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnCep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnLogradouro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnNumero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnComplemento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnBairro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnCidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnUf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnTipoEndereco;
         private System.Windows.Forms.TabControl tbcInserir;
         private System.Windows.Forms.TabPage tabDadosPessoais;
         private System.Windows.Forms.TabPage tabEnderecos;
@@ -663,6 +650,19 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.CheckBox chkAtivos;
+        private System.Windows.Forms.CheckBox chkInativos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnIdTelefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnNumeroTelefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnTipoTelefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnIdEndereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnCep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnLogradouro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnComplemento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnBairro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnCidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnUf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnTipoEndereco;
     }
 }
