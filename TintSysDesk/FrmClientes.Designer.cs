@@ -44,7 +44,27 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvEnderecoInativo = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvEndereco = new System.Windows.Forms.DataGridView();
+            this.clnIdEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnTipoEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtPesquisarInativos = new System.Windows.Forms.TextBox();
@@ -71,29 +91,19 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
-            this.clnIdEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnTipoEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcInserir = new System.Windows.Forms.TabControl();
-            this.a = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabDadosPessoais = new System.Windows.Forms.TabPage();
+            this.tabEnderecos = new System.Windows.Forms.TabPage();
+            this.tabTelefones = new System.Windows.Forms.TabPage();
+            this.mstCpf = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.pnlConsulta.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefoneInativo)).BeginInit();
@@ -107,6 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaIdCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCliente)).BeginInit();
             this.tbcInserir.SuspendLayout();
+            this.tabDadosPessoais.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlConsulta
@@ -290,6 +301,86 @@
             this.dgvEnderecoInativo.Size = new System.Drawing.Size(611, 90);
             this.dgvEnderecoInativo.TabIndex = 19;
             // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.Frozen = true;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 29;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.Frozen = true;
+            this.dataGridViewTextBoxColumn7.HeaderText = "CEP";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.Frozen = true;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Logradouro";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.Frozen = true;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Número";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.Frozen = true;
+            this.dataGridViewTextBoxColumn10.HeaderText = "Complemento";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.Frozen = true;
+            this.dataGridViewTextBoxColumn11.HeaderText = "Bairro";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.Frozen = true;
+            this.dataGridViewTextBoxColumn12.HeaderText = "Cidade";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.Frozen = true;
+            this.dataGridViewTextBoxColumn13.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.Frozen = true;
+            this.dataGridViewTextBoxColumn14.HeaderText = "UF";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.Frozen = true;
+            this.dataGridViewTextBoxColumn15.HeaderText = "Tipos";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 50;
+            // 
             // dgvEndereco
             // 
             this.dgvEndereco.AllowUserToAddRows = false;
@@ -312,6 +403,86 @@
             this.dgvEndereco.RowHeadersVisible = false;
             this.dgvEndereco.Size = new System.Drawing.Size(611, 90);
             this.dgvEndereco.TabIndex = 18;
+            // 
+            // clnIdEndereco
+            // 
+            this.clnIdEndereco.Frozen = true;
+            this.clnIdEndereco.HeaderText = "Id";
+            this.clnIdEndereco.Name = "clnIdEndereco";
+            this.clnIdEndereco.ReadOnly = true;
+            this.clnIdEndereco.Width = 29;
+            // 
+            // clnCep
+            // 
+            this.clnCep.Frozen = true;
+            this.clnCep.HeaderText = "CEP";
+            this.clnCep.Name = "clnCep";
+            this.clnCep.ReadOnly = true;
+            this.clnCep.Width = 50;
+            // 
+            // clnLogradouro
+            // 
+            this.clnLogradouro.Frozen = true;
+            this.clnLogradouro.HeaderText = "Logradouro";
+            this.clnLogradouro.Name = "clnLogradouro";
+            this.clnLogradouro.ReadOnly = true;
+            this.clnLogradouro.Width = 150;
+            // 
+            // clnNumero
+            // 
+            this.clnNumero.Frozen = true;
+            this.clnNumero.HeaderText = "Número";
+            this.clnNumero.Name = "clnNumero";
+            this.clnNumero.ReadOnly = true;
+            this.clnNumero.Width = 50;
+            // 
+            // clnComplemento
+            // 
+            this.clnComplemento.Frozen = true;
+            this.clnComplemento.HeaderText = "Complemento";
+            this.clnComplemento.Name = "clnComplemento";
+            this.clnComplemento.ReadOnly = true;
+            this.clnComplemento.Width = 80;
+            // 
+            // clnBairro
+            // 
+            this.clnBairro.Frozen = true;
+            this.clnBairro.HeaderText = "Bairro";
+            this.clnBairro.Name = "clnBairro";
+            this.clnBairro.ReadOnly = true;
+            this.clnBairro.Width = 50;
+            // 
+            // clnCidade
+            // 
+            this.clnCidade.Frozen = true;
+            this.clnCidade.HeaderText = "Cidade";
+            this.clnCidade.Name = "clnCidade";
+            this.clnCidade.ReadOnly = true;
+            this.clnCidade.Width = 50;
+            // 
+            // clnEstado
+            // 
+            this.clnEstado.Frozen = true;
+            this.clnEstado.HeaderText = "Estado";
+            this.clnEstado.Name = "clnEstado";
+            this.clnEstado.ReadOnly = true;
+            this.clnEstado.Width = 50;
+            // 
+            // clnUf
+            // 
+            this.clnUf.Frozen = true;
+            this.clnUf.HeaderText = "UF";
+            this.clnUf.Name = "clnUf";
+            this.clnUf.ReadOnly = true;
+            this.clnUf.Width = 50;
+            // 
+            // clnTipoEndereco
+            // 
+            this.clnTipoEndereco.Frozen = true;
+            this.clnTipoEndereco.HeaderText = "Tipos";
+            this.clnTipoEndereco.Name = "clnTipoEndereco";
+            this.clnTipoEndereco.ReadOnly = true;
+            this.clnTipoEndereco.Width = 50;
             // 
             // groupBox1
             // 
@@ -589,170 +760,11 @@
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
-            // clnIdEndereco
-            // 
-            this.clnIdEndereco.Frozen = true;
-            this.clnIdEndereco.HeaderText = "Id";
-            this.clnIdEndereco.Name = "clnIdEndereco";
-            this.clnIdEndereco.ReadOnly = true;
-            this.clnIdEndereco.Width = 29;
-            // 
-            // clnCep
-            // 
-            this.clnCep.Frozen = true;
-            this.clnCep.HeaderText = "CEP";
-            this.clnCep.Name = "clnCep";
-            this.clnCep.ReadOnly = true;
-            this.clnCep.Width = 50;
-            // 
-            // clnLogradouro
-            // 
-            this.clnLogradouro.Frozen = true;
-            this.clnLogradouro.HeaderText = "Logradouro";
-            this.clnLogradouro.Name = "clnLogradouro";
-            this.clnLogradouro.ReadOnly = true;
-            this.clnLogradouro.Width = 150;
-            // 
-            // clnNumero
-            // 
-            this.clnNumero.Frozen = true;
-            this.clnNumero.HeaderText = "Número";
-            this.clnNumero.Name = "clnNumero";
-            this.clnNumero.ReadOnly = true;
-            this.clnNumero.Width = 50;
-            // 
-            // clnComplemento
-            // 
-            this.clnComplemento.Frozen = true;
-            this.clnComplemento.HeaderText = "Complemento";
-            this.clnComplemento.Name = "clnComplemento";
-            this.clnComplemento.ReadOnly = true;
-            this.clnComplemento.Width = 80;
-            // 
-            // clnBairro
-            // 
-            this.clnBairro.Frozen = true;
-            this.clnBairro.HeaderText = "Bairro";
-            this.clnBairro.Name = "clnBairro";
-            this.clnBairro.ReadOnly = true;
-            this.clnBairro.Width = 50;
-            // 
-            // clnCidade
-            // 
-            this.clnCidade.Frozen = true;
-            this.clnCidade.HeaderText = "Cidade";
-            this.clnCidade.Name = "clnCidade";
-            this.clnCidade.ReadOnly = true;
-            this.clnCidade.Width = 50;
-            // 
-            // clnEstado
-            // 
-            this.clnEstado.Frozen = true;
-            this.clnEstado.HeaderText = "Estado";
-            this.clnEstado.Name = "clnEstado";
-            this.clnEstado.ReadOnly = true;
-            this.clnEstado.Width = 50;
-            // 
-            // clnUf
-            // 
-            this.clnUf.Frozen = true;
-            this.clnUf.HeaderText = "UF";
-            this.clnUf.Name = "clnUf";
-            this.clnUf.ReadOnly = true;
-            this.clnUf.Width = 50;
-            // 
-            // clnTipoEndereco
-            // 
-            this.clnTipoEndereco.Frozen = true;
-            this.clnTipoEndereco.HeaderText = "Tipos";
-            this.clnTipoEndereco.Name = "clnTipoEndereco";
-            this.clnTipoEndereco.ReadOnly = true;
-            this.clnTipoEndereco.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.Frozen = true;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 29;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.Frozen = true;
-            this.dataGridViewTextBoxColumn7.HeaderText = "CEP";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.Frozen = true;
-            this.dataGridViewTextBoxColumn8.HeaderText = "Logradouro";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.Frozen = true;
-            this.dataGridViewTextBoxColumn9.HeaderText = "Número";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.Frozen = true;
-            this.dataGridViewTextBoxColumn10.HeaderText = "Complemento";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.Frozen = true;
-            this.dataGridViewTextBoxColumn11.HeaderText = "Bairro";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.Frozen = true;
-            this.dataGridViewTextBoxColumn12.HeaderText = "Cidade";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.Frozen = true;
-            this.dataGridViewTextBoxColumn13.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.Frozen = true;
-            this.dataGridViewTextBoxColumn14.HeaderText = "UF";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.Frozen = true;
-            this.dataGridViewTextBoxColumn15.HeaderText = "Tipos";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 50;
-            // 
             // tbcInserir
             // 
-            this.tbcInserir.Controls.Add(this.a);
-            this.tbcInserir.Controls.Add(this.tabPage2);
+            this.tbcInserir.Controls.Add(this.tabDadosPessoais);
+            this.tbcInserir.Controls.Add(this.tabEnderecos);
+            this.tbcInserir.Controls.Add(this.tabTelefones);
             this.tbcInserir.Location = new System.Drawing.Point(597, 143);
             this.tbcInserir.Name = "tbcInserir";
             this.tbcInserir.SelectedIndex = 0;
@@ -760,25 +772,127 @@
             this.tbcInserir.TabIndex = 17;
             this.tbcInserir.Visible = false;
             // 
-            // a
+            // tabDadosPessoais
             // 
-            this.a.Location = new System.Drawing.Point(4, 22);
-            this.a.Name = "a";
-            this.a.Padding = new System.Windows.Forms.Padding(3);
-            this.a.Size = new System.Drawing.Size(618, 421);
-            this.a.TabIndex = 0;
-            this.a.Text = "tabPage1";
-            this.a.UseVisualStyleBackColor = true;
+            this.tabDadosPessoais.Controls.Add(this.mstCpf);
+            this.tabDadosPessoais.Controls.Add(this.label6);
+            this.tabDadosPessoais.Controls.Add(this.label9);
+            this.tabDadosPessoais.Controls.Add(this.label10);
+            this.tabDadosPessoais.Controls.Add(this.txtEmail);
+            this.tabDadosPessoais.Controls.Add(this.txtNome);
+            this.tabDadosPessoais.Controls.Add(this.textBox1);
+            this.tabDadosPessoais.Controls.Add(this.button2);
+            this.tabDadosPessoais.Controls.Add(this.label11);
+            this.tabDadosPessoais.Location = new System.Drawing.Point(4, 22);
+            this.tabDadosPessoais.Name = "tabDadosPessoais";
+            this.tabDadosPessoais.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDadosPessoais.Size = new System.Drawing.Size(618, 421);
+            this.tabDadosPessoais.TabIndex = 0;
+            this.tabDadosPessoais.Text = "Dados Pessoais";
+            this.tabDadosPessoais.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tabEnderecos
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(618, 421);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabEnderecos.Location = new System.Drawing.Point(4, 22);
+            this.tabEnderecos.Name = "tabEnderecos";
+            this.tabEnderecos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEnderecos.Size = new System.Drawing.Size(618, 421);
+            this.tabEnderecos.TabIndex = 1;
+            this.tabEnderecos.Text = "Endereços";
+            this.tabEnderecos.UseVisualStyleBackColor = true;
+            // 
+            // tabTelefones
+            // 
+            this.tabTelefones.Location = new System.Drawing.Point(4, 22);
+            this.tabTelefones.Name = "tabTelefones";
+            this.tabTelefones.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTelefones.Size = new System.Drawing.Size(618, 421);
+            this.tabTelefones.TabIndex = 2;
+            this.tabTelefones.Text = "Telefones";
+            this.tabTelefones.UseVisualStyleBackColor = true;
+            // 
+            // mstCpf
+            // 
+            this.mstCpf.Location = new System.Drawing.Point(193, 222);
+            this.mstCpf.Mask = "000.000.000-00";
+            this.mstCpf.Name = "mstCpf";
+            this.mstCpf.Size = new System.Drawing.Size(98, 20);
+            this.mstCpf.TabIndex = 40;
+            this.mstCpf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(157, 229);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(27, 13);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "CPF";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(152, 184);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(32, 13);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "Email";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(149, 148);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.TabIndex = 37;
+            this.label10.Text = "Nome";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(193, 177);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(276, 20);
+            this.txtEmail.TabIndex = 35;
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(193, 141);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(276, 20);
+            this.txtNome.TabIndex = 34;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(193, 109);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(59, 20);
+            this.textBox1.TabIndex = 33;
+            this.textBox1.Text = " ";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::TintSysDesk.Properties.Resources.Add;
+            this.button2.Location = new System.Drawing.Point(394, 242);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 55);
+            this.button2.TabIndex = 30;
+            this.button2.Text = "Inserir";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(166, 116);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(18, 13);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "ID";
             // 
             // FrmClientes
             // 
@@ -810,6 +924,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaIdCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCliente)).EndInit();
             this.tbcInserir.ResumeLayout(false);
+            this.tabDadosPessoais.ResumeLayout(false);
+            this.tabDadosPessoais.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -880,7 +996,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnUf;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnTipoEndereco;
         private System.Windows.Forms.TabControl tbcInserir;
-        private System.Windows.Forms.TabPage a;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabDadosPessoais;
+        private System.Windows.Forms.TabPage tabEnderecos;
+        private System.Windows.Forms.TabPage tabTelefones;
+        private System.Windows.Forms.MaskedTextBox mstCpf;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label11;
     }
 }

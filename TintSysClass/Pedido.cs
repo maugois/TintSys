@@ -72,22 +72,40 @@ namespace TintSysClass
         }
 
         // Metodos da classe
-        public void Inserir()
+        public bool Inserir()
         {
-            var cmd = Banco.Abrir();
-            
-            cmd.CommandText = "insert pedidos (data, status, desconto, cliente_id, usuario_id, hashcode) " +
-                "values (default, default, 0, @cliente, @usuario, @hashcode)";
-            
-            cmd.Parameters.Add("@cliente", MySqlDbType.Int32).Value = Cliente.Id;
-            cmd.Parameters.Add("@usuario", MySqlDbType.Int32).Value = Usuario.Id;
-            cmd.Parameters.Add("@hashcode", MySqlDbType.VarChar).Value = ObterHashCode(Cliente.Id, Usuario.Id);
-            cmd.ExecuteNonQuery();
-            
-            cmd.CommandText = "select @@identity";
-            Id = Convert.ToInt32(cmd.ExecuteScalar());
+            MySqlCommand cmd = null;
+            bool teste = false;
 
-            Banco.Fechar(cmd);
+            try
+            {
+                cmd = Banco.Abrir();
+
+                cmd.CommandText = "insert pedidos (data, status, desconto, cliente_id, usuario_id, hashcode) " +
+                    "values (default, default, 0, @cliente, @usuario, @hashcode)";
+
+                cmd.Parameters.Add("@cliente", MySqlDbType.Int32).Value = Cliente.Id;
+                cmd.Parameters.Add("@usuario", MySqlDbType.Int32).Value = Usuario.Id;
+                cmd.Parameters.Add("@hashcode", MySqlDbType.VarChar).Value = ObterHashCode(Cliente.Id, Usuario.Id);
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    cmd.CommandText = "select @@identity";
+                    Id = Convert.ToInt32(cmd.ExecuteScalar());
+                    teste = true;
+                }
+            }
+            catch (Exception)
+            {
+                // Mostra o erro
+            }
+            finally
+            {
+                Banco.Fechar(cmd);
+            }
+
+            return teste;
+         
         }
 
         public static Pedido ObterPorId(int _id)
@@ -180,6 +198,32 @@ namespace TintSysClass
             {
                 Banco.Fechar(cmd);
             } 
+
+            return teste;
+        }
+
+        public static bool Cancelar(int _id)
+        {
+            bool teste = false;
+            MySqlCommand cmd = null;
+
+            try
+            {
+                cmd = Banco.Abrir();
+
+                cmd.CommandText = "update pedidos set status = 'C' where id = " + _id;
+
+                if (cmd.ExecuteNonQuery() > 0)
+                    teste = true;
+            }
+            catch (Exception)
+            {
+                // Mostra o erro
+            }
+            finally
+            {
+                Banco.Fechar(cmd);
+            }
 
             return teste;
         }

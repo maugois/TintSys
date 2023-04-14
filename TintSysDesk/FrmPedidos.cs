@@ -38,7 +38,7 @@ namespace TintSysDesk
         {
             Pedido pedido = new Pedido(Cliente.ObterPorId(
                 Convert.ToInt32(cmbCliente.SelectedValue)),
-                Usuario.ObterPorId(Convert.ToInt32(cmbCliente.SelectedValue))
+                Usuario.ObterPorId(Convert.ToInt32(cmbUsuario.SelectedValue))
                 );
 
             pedido.Inserir();
