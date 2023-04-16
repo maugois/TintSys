@@ -94,7 +94,7 @@ namespace TintSysClass
         {
             var cmd = Banco.Abrir();
 
-            cmd.CommandText = "update enderecos set cep = @cep, logradouro = @logradouro, numero = @numero, complemento = @complemento, bairro = @bairro, cidade = @cidade, estado = @estado, uf = @uf tipo = @tipo where id = " + Id;
+            cmd.CommandText = "update enderecos set cep = @cep, logradouro = @logradouro, numero = @numero, complemento = @complemento, bairro = @bairro, cidade = @cidade, estado = @estado, uf = @uf tipo = @tipo where cliente_id = " + Id;
             cmd.Parameters.Add("@cep", MySqlDbType.VarChar).Value = Cep;
             cmd.Parameters.Add("@logradouro", MySqlDbType.VarChar).Value = Logradouro;
             cmd.Parameters.Add("@numero", MySqlDbType.VarChar).Value = Numero;

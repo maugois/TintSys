@@ -107,9 +107,50 @@
             this.label15 = new System.Windows.Forms.Label();
             this.mstNumeroTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.pnlAlterar = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tbcConsultar = new System.Windows.Forms.TabControl();
+            this.tabInfo = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.txtPesquisarAlterar = new System.Windows.Forms.TextBox();
+            this.chkInativosAlterar = new System.Windows.Forms.CheckBox();
+            this.dgvClienteAlterar = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnObterAlterar = new System.Windows.Forms.Button();
+            this.txtIdAlterar = new System.Windows.Forms.TextBox();
+            this.tabDadosConsultar = new System.Windows.Forms.TabPage();
+            this.btnVoltarAlterar = new System.Windows.Forms.Button();
+            this.gbTelefoneAlterar = new System.Windows.Forms.GroupBox();
+            this.txtTipoTelefoneAlterar = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.mstNumeroTelefoneAlterar = new System.Windows.Forms.MaskedTextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.gbEnderecoAlterar = new System.Windows.Forms.GroupBox();
+            this.txtTipoAlterar = new System.Windows.Forms.TextBox();
+            this.txtUfAlterar = new System.Windows.Forms.TextBox();
+            this.txtEstadoAlterar = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txtLogradouroAlterar = new System.Windows.Forms.TextBox();
+            this.mstCEPAlterar = new System.Windows.Forms.MaskedTextBox();
+            this.txtCidadeAlterar = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtComplementoAlterar = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.txtNumeroAlterar = new System.Windows.Forms.TextBox();
+            this.txtBairroAlterar = new System.Windows.Forms.TextBox();
+            this.gbDadosAlterar = new System.Windows.Forms.GroupBox();
+            this.txtNomeAlterar = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnProntoAlterar = new System.Windows.Forms.Button();
+            this.chkAtivoAlterar = new System.Windows.Forms.CheckBox();
             this.pnlConsulta.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefone)).BeginInit();
@@ -125,7 +166,14 @@
             this.gbEnderecos.SuspendLayout();
             this.tabTelefones.SuspendLayout();
             this.gbTelefones.SuspendLayout();
-            this.pnlAlterar.SuspendLayout();
+            this.tbcConsultar.SuspendLayout();
+            this.tabInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClienteAlterar)).BeginInit();
+            this.tabDadosConsultar.SuspendLayout();
+            this.gbTelefoneAlterar.SuspendLayout();
+            this.gbEnderecoAlterar.SuspendLayout();
+            this.gbDadosAlterar.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlConsulta
@@ -917,43 +965,442 @@
             this.label20.TabIndex = 45;
             this.label20.Text = "Numero";
             // 
-            // pnlAlterar
+            // tbcConsultar
             // 
-            this.pnlAlterar.Controls.Add(this.tabPage1);
-            this.pnlAlterar.Controls.Add(this.tabPage2);
-            this.pnlAlterar.Location = new System.Drawing.Point(28, 136);
-            this.pnlAlterar.Name = "pnlAlterar";
-            this.pnlAlterar.SelectedIndex = 0;
-            this.pnlAlterar.Size = new System.Drawing.Size(569, 454);
-            this.pnlAlterar.TabIndex = 31;
-            this.pnlAlterar.Visible = false;
+            this.tbcConsultar.Controls.Add(this.tabInfo);
+            this.tbcConsultar.Controls.Add(this.tabDadosConsultar);
+            this.tbcConsultar.Location = new System.Drawing.Point(28, 136);
+            this.tbcConsultar.Name = "tbcConsultar";
+            this.tbcConsultar.SelectedIndex = 0;
+            this.tbcConsultar.Size = new System.Drawing.Size(569, 454);
+            this.tbcConsultar.TabIndex = 31;
+            this.tbcConsultar.Visible = false;
             // 
-            // tabPage1
+            // tabInfo
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(561, 428);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabInfo.Controls.Add(this.pictureBox2);
+            this.tabInfo.Controls.Add(this.txtPesquisarAlterar);
+            this.tabInfo.Controls.Add(this.chkInativosAlterar);
+            this.tabInfo.Controls.Add(this.dgvClienteAlterar);
+            this.tabInfo.Controls.Add(this.btnObterAlterar);
+            this.tabInfo.Controls.Add(this.txtIdAlterar);
+            this.tabInfo.Location = new System.Drawing.Point(4, 22);
+            this.tabInfo.Name = "tabInfo";
+            this.tabInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabInfo.Size = new System.Drawing.Size(561, 428);
+            this.tabInfo.TabIndex = 0;
+            this.tabInfo.Text = "Informações";
+            this.tabInfo.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // pictureBox2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.pictureBox2.Image = global::TintSysDesk.Properties.Resources.Search;
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(517, 150);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            // 
+            // txtPesquisarAlterar
+            // 
+            this.txtPesquisarAlterar.Location = new System.Drawing.Point(9, 150);
+            this.txtPesquisarAlterar.Name = "txtPesquisarAlterar";
+            this.txtPesquisarAlterar.Size = new System.Drawing.Size(509, 20);
+            this.txtPesquisarAlterar.TabIndex = 32;
+            this.txtPesquisarAlterar.TextChanged += new System.EventHandler(this.txtPesquisarAlterar_TextChanged);
+            // 
+            // chkInativosAlterar
+            // 
+            this.chkInativosAlterar.AutoSize = true;
+            this.chkInativosAlterar.Location = new System.Drawing.Point(9, 92);
+            this.chkInativosAlterar.Name = "chkInativosAlterar";
+            this.chkInativosAlterar.Size = new System.Drawing.Size(90, 17);
+            this.chkInativosAlterar.TabIndex = 31;
+            this.chkInativosAlterar.Text = "Listar inativos";
+            this.chkInativosAlterar.UseVisualStyleBackColor = true;
+            this.chkInativosAlterar.CheckedChanged += new System.EventHandler(this.chkInativosAlterar_CheckedChanged);
+            // 
+            // dgvClienteAlterar
+            // 
+            this.dgvClienteAlterar.AllowUserToAddRows = false;
+            this.dgvClienteAlterar.AllowUserToDeleteRows = false;
+            this.dgvClienteAlterar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClienteAlterar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dgvClienteAlterar.Location = new System.Drawing.Point(9, 171);
+            this.dgvClienteAlterar.Name = "dgvClienteAlterar";
+            this.dgvClienteAlterar.ReadOnly = true;
+            this.dgvClienteAlterar.RowHeadersVisible = false;
+            this.dgvClienteAlterar.Size = new System.Drawing.Size(540, 167);
+            this.dgvClienteAlterar.TabIndex = 15;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.Frozen = true;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.Frozen = true;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.Frozen = true;
+            this.dataGridViewTextBoxColumn3.HeaderText = "CPF";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.Frozen = true;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Email";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.Frozen = true;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Data Cadastro";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 125;
+            // 
+            // btnObterAlterar
+            // 
+            this.btnObterAlterar.Location = new System.Drawing.Point(88, 113);
+            this.btnObterAlterar.Name = "btnObterAlterar";
+            this.btnObterAlterar.Size = new System.Drawing.Size(49, 23);
+            this.btnObterAlterar.TabIndex = 3;
+            this.btnObterAlterar.Text = "...";
+            this.btnObterAlterar.UseVisualStyleBackColor = true;
+            this.btnObterAlterar.Click += new System.EventHandler(this.btnObterAlterar_Click);
+            // 
+            // txtIdAlterar
+            // 
+            this.txtIdAlterar.Location = new System.Drawing.Point(31, 115);
+            this.txtIdAlterar.Name = "txtIdAlterar";
+            this.txtIdAlterar.ReadOnly = true;
+            this.txtIdAlterar.Size = new System.Drawing.Size(41, 20);
+            this.txtIdAlterar.TabIndex = 2;
+            // 
+            // tabDadosConsultar
+            // 
+            this.tabDadosConsultar.Controls.Add(this.btnVoltarAlterar);
+            this.tabDadosConsultar.Controls.Add(this.gbTelefoneAlterar);
+            this.tabDadosConsultar.Controls.Add(this.gbEnderecoAlterar);
+            this.tabDadosConsultar.Controls.Add(this.gbDadosAlterar);
+            this.tabDadosConsultar.Controls.Add(this.btnProntoAlterar);
+            this.tabDadosConsultar.Location = new System.Drawing.Point(4, 22);
+            this.tabDadosConsultar.Name = "tabDadosConsultar";
+            this.tabDadosConsultar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDadosConsultar.Size = new System.Drawing.Size(561, 428);
+            this.tabDadosConsultar.TabIndex = 1;
+            this.tabDadosConsultar.Text = "Dados Alterar";
+            this.tabDadosConsultar.UseVisualStyleBackColor = true;
+            // 
+            // btnVoltarAlterar
+            // 
+            this.btnVoltarAlterar.Location = new System.Drawing.Point(30, 387);
+            this.btnVoltarAlterar.Name = "btnVoltarAlterar";
+            this.btnVoltarAlterar.Size = new System.Drawing.Size(72, 23);
+            this.btnVoltarAlterar.TabIndex = 57;
+            this.btnVoltarAlterar.Text = "Voltar";
+            this.btnVoltarAlterar.UseVisualStyleBackColor = true;
+            this.btnVoltarAlterar.Click += new System.EventHandler(this.btnVoltarAlterar_Click);
+            // 
+            // gbTelefoneAlterar
+            // 
+            this.gbTelefoneAlterar.Controls.Add(this.txtTipoTelefoneAlterar);
+            this.gbTelefoneAlterar.Controls.Add(this.label37);
+            this.gbTelefoneAlterar.Controls.Add(this.mstNumeroTelefoneAlterar);
+            this.gbTelefoneAlterar.Controls.Add(this.label38);
+            this.gbTelefoneAlterar.Enabled = false;
+            this.gbTelefoneAlterar.Location = new System.Drawing.Point(30, 311);
+            this.gbTelefoneAlterar.Name = "gbTelefoneAlterar";
+            this.gbTelefoneAlterar.Size = new System.Drawing.Size(499, 63);
+            this.gbTelefoneAlterar.TabIndex = 56;
+            this.gbTelefoneAlterar.TabStop = false;
+            this.gbTelefoneAlterar.Text = "Telefones";
+            // 
+            // txtTipoTelefoneAlterar
+            // 
+            this.txtTipoTelefoneAlterar.Location = new System.Drawing.Point(222, 31);
+            this.txtTipoTelefoneAlterar.Name = "txtTipoTelefoneAlterar";
+            this.txtTipoTelefoneAlterar.Size = new System.Drawing.Size(162, 20);
+            this.txtTipoTelefoneAlterar.TabIndex = 58;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(219, 15);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(28, 13);
+            this.label37.TabIndex = 54;
+            this.label37.Text = "Tipo";
+            // 
+            // mstNumeroTelefoneAlterar
+            // 
+            this.mstNumeroTelefoneAlterar.Location = new System.Drawing.Point(67, 31);
+            this.mstNumeroTelefoneAlterar.Mask = "55+ 00 0000-0000";
+            this.mstNumeroTelefoneAlterar.Name = "mstNumeroTelefoneAlterar";
+            this.mstNumeroTelefoneAlterar.Size = new System.Drawing.Size(96, 20);
+            this.mstNumeroTelefoneAlterar.TabIndex = 46;
+            this.mstNumeroTelefoneAlterar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(64, 15);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(44, 13);
+            this.label38.TabIndex = 45;
+            this.label38.Text = "Numero";
+            // 
+            // gbEnderecoAlterar
+            // 
+            this.gbEnderecoAlterar.Controls.Add(this.txtTipoAlterar);
+            this.gbEnderecoAlterar.Controls.Add(this.txtUfAlterar);
+            this.gbEnderecoAlterar.Controls.Add(this.txtEstadoAlterar);
+            this.gbEnderecoAlterar.Controls.Add(this.label16);
+            this.gbEnderecoAlterar.Controls.Add(this.label17);
+            this.gbEnderecoAlterar.Controls.Add(this.label30);
+            this.gbEnderecoAlterar.Controls.Add(this.label31);
+            this.gbEnderecoAlterar.Controls.Add(this.label32);
+            this.gbEnderecoAlterar.Controls.Add(this.label33);
+            this.gbEnderecoAlterar.Controls.Add(this.txtLogradouroAlterar);
+            this.gbEnderecoAlterar.Controls.Add(this.mstCEPAlterar);
+            this.gbEnderecoAlterar.Controls.Add(this.txtCidadeAlterar);
+            this.gbEnderecoAlterar.Controls.Add(this.label34);
+            this.gbEnderecoAlterar.Controls.Add(this.txtComplementoAlterar);
+            this.gbEnderecoAlterar.Controls.Add(this.label35);
+            this.gbEnderecoAlterar.Controls.Add(this.label36);
+            this.gbEnderecoAlterar.Controls.Add(this.txtNumeroAlterar);
+            this.gbEnderecoAlterar.Controls.Add(this.txtBairroAlterar);
+            this.gbEnderecoAlterar.Enabled = false;
+            this.gbEnderecoAlterar.Location = new System.Drawing.Point(29, 78);
+            this.gbEnderecoAlterar.Name = "gbEnderecoAlterar";
+            this.gbEnderecoAlterar.Size = new System.Drawing.Size(500, 229);
+            this.gbEnderecoAlterar.TabIndex = 54;
+            this.gbEnderecoAlterar.TabStop = false;
+            this.gbEnderecoAlterar.Text = "Enderecos";
+            // 
+            // txtTipoAlterar
+            // 
+            this.txtTipoAlterar.Location = new System.Drawing.Point(297, 169);
+            this.txtTipoAlterar.Name = "txtTipoAlterar";
+            this.txtTipoAlterar.Size = new System.Drawing.Size(162, 20);
+            this.txtTipoAlterar.TabIndex = 58;
+            // 
+            // txtUfAlterar
+            // 
+            this.txtUfAlterar.Location = new System.Drawing.Point(93, 198);
+            this.txtUfAlterar.Name = "txtUfAlterar";
+            this.txtUfAlterar.Size = new System.Drawing.Size(37, 20);
+            this.txtUfAlterar.TabIndex = 57;
+            // 
+            // txtEstadoAlterar
+            // 
+            this.txtEstadoAlterar.Location = new System.Drawing.Point(93, 163);
+            this.txtEstadoAlterar.Name = "txtEstadoAlterar";
+            this.txtEstadoAlterar.Size = new System.Drawing.Size(108, 20);
+            this.txtEstadoAlterar.TabIndex = 56;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(67, 200);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(21, 13);
+            this.label16.TabIndex = 55;
+            this.label16.Text = "UF";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(261, 171);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(28, 13);
+            this.label17.TabIndex = 54;
+            this.label17.Text = "Tipo";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(48, 165);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(40, 13);
+            this.label30.TabIndex = 53;
+            this.label30.Text = "Estado";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(249, 133);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(40, 13);
+            this.label31.TabIndex = 52;
+            this.label31.Text = "Cidade";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(255, 98);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(34, 13);
+            this.label32.TabIndex = 51;
+            this.label32.Text = "Bairro";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(20, 133);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(71, 13);
+            this.label33.TabIndex = 50;
+            this.label33.Text = "Complemento";
+            // 
+            // txtLogradouroAlterar
+            // 
+            this.txtLogradouroAlterar.Location = new System.Drawing.Point(93, 61);
+            this.txtLogradouroAlterar.Name = "txtLogradouroAlterar";
+            this.txtLogradouroAlterar.Size = new System.Drawing.Size(273, 20);
+            this.txtLogradouroAlterar.TabIndex = 41;
+            // 
+            // mstCEPAlterar
+            // 
+            this.mstCEPAlterar.Location = new System.Drawing.Point(93, 26);
+            this.mstCEPAlterar.Mask = "00000-000";
+            this.mstCEPAlterar.Name = "mstCEPAlterar";
+            this.mstCEPAlterar.Size = new System.Drawing.Size(60, 20);
+            this.mstCEPAlterar.TabIndex = 46;
+            this.mstCEPAlterar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtCidadeAlterar
+            // 
+            this.txtCidadeAlterar.Location = new System.Drawing.Point(297, 131);
+            this.txtCidadeAlterar.Name = "txtCidadeAlterar";
+            this.txtCidadeAlterar.Size = new System.Drawing.Size(162, 20);
+            this.txtCidadeAlterar.TabIndex = 48;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(44, 98);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(44, 13);
+            this.label34.TabIndex = 45;
+            this.label34.Text = "Numero";
+            // 
+            // txtComplementoAlterar
+            // 
+            this.txtComplementoAlterar.Location = new System.Drawing.Point(93, 131);
+            this.txtComplementoAlterar.Name = "txtComplementoAlterar";
+            this.txtComplementoAlterar.Size = new System.Drawing.Size(108, 20);
+            this.txtComplementoAlterar.TabIndex = 49;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(60, 28);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(28, 13);
+            this.label35.TabIndex = 43;
+            this.label35.Text = "CEP";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(27, 63);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(61, 13);
+            this.label36.TabIndex = 44;
+            this.label36.Text = "Logradouro";
+            // 
+            // txtNumeroAlterar
+            // 
+            this.txtNumeroAlterar.Location = new System.Drawing.Point(93, 96);
+            this.txtNumeroAlterar.Name = "txtNumeroAlterar";
+            this.txtNumeroAlterar.Size = new System.Drawing.Size(108, 20);
+            this.txtNumeroAlterar.TabIndex = 47;
+            // 
+            // txtBairroAlterar
+            // 
+            this.txtBairroAlterar.Location = new System.Drawing.Point(297, 96);
+            this.txtBairroAlterar.Name = "txtBairroAlterar";
+            this.txtBairroAlterar.Size = new System.Drawing.Size(162, 20);
+            this.txtBairroAlterar.TabIndex = 42;
+            // 
+            // gbDadosAlterar
+            // 
+            this.gbDadosAlterar.Controls.Add(this.chkAtivoAlterar);
+            this.gbDadosAlterar.Controls.Add(this.txtNomeAlterar);
+            this.gbDadosAlterar.Controls.Add(this.label14);
+            this.gbDadosAlterar.Enabled = false;
+            this.gbDadosAlterar.Location = new System.Drawing.Point(30, 6);
+            this.gbDadosAlterar.Name = "gbDadosAlterar";
+            this.gbDadosAlterar.Size = new System.Drawing.Size(499, 70);
+            this.gbDadosAlterar.TabIndex = 53;
+            this.gbDadosAlterar.TabStop = false;
+            this.gbDadosAlterar.Text = "Dados Pessoais";
+            // 
+            // txtNomeAlterar
+            // 
+            this.txtNomeAlterar.Location = new System.Drawing.Point(29, 32);
+            this.txtNomeAlterar.Name = "txtNomeAlterar";
+            this.txtNomeAlterar.Size = new System.Drawing.Size(323, 20);
+            this.txtNomeAlterar.TabIndex = 34;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(26, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(35, 13);
+            this.label14.TabIndex = 37;
+            this.label14.Text = "Nome";
+            // 
+            // btnProntoAlterar
+            // 
+            this.btnProntoAlterar.Enabled = false;
+            this.btnProntoAlterar.Location = new System.Drawing.Point(388, 387);
+            this.btnProntoAlterar.Name = "btnProntoAlterar";
+            this.btnProntoAlterar.Size = new System.Drawing.Size(141, 23);
+            this.btnProntoAlterar.TabIndex = 52;
+            this.btnProntoAlterar.Text = "Pronto";
+            this.btnProntoAlterar.UseVisualStyleBackColor = true;
+            this.btnProntoAlterar.Click += new System.EventHandler(this.btnProntoAlterar_Click);
+            // 
+            // chkAtivoAlterar
+            // 
+            this.chkAtivoAlterar.AutoSize = true;
+            this.chkAtivoAlterar.Location = new System.Drawing.Point(388, 35);
+            this.chkAtivoAlterar.Name = "chkAtivoAlterar";
+            this.chkAtivoAlterar.Size = new System.Drawing.Size(50, 17);
+            this.chkAtivoAlterar.TabIndex = 38;
+            this.chkAtivoAlterar.Text = "Ativo";
+            this.chkAtivoAlterar.UseVisualStyleBackColor = true;
             // 
             // FrmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 611);
-            this.Controls.Add(this.pnlAlterar);
+            this.Controls.Add(this.tbcConsultar);
             this.Controls.Add(this.tbcInserir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnConsultar);
@@ -982,7 +1429,18 @@
             this.tabTelefones.ResumeLayout(false);
             this.gbTelefones.ResumeLayout(false);
             this.gbTelefones.PerformLayout();
-            this.pnlAlterar.ResumeLayout(false);
+            this.tbcConsultar.ResumeLayout(false);
+            this.tabInfo.ResumeLayout(false);
+            this.tabInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClienteAlterar)).EndInit();
+            this.tabDadosConsultar.ResumeLayout(false);
+            this.gbTelefoneAlterar.ResumeLayout(false);
+            this.gbTelefoneAlterar.PerformLayout();
+            this.gbEnderecoAlterar.ResumeLayout(false);
+            this.gbEnderecoAlterar.PerformLayout();
+            this.gbDadosAlterar.ResumeLayout(false);
+            this.gbDadosAlterar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1068,8 +1526,49 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnVoltarEnderecos;
         private System.Windows.Forms.Button btnVoltarTelefones;
-        private System.Windows.Forms.TabControl pnlAlterar;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tbcConsultar;
+        private System.Windows.Forms.TabPage tabInfo;
+        private System.Windows.Forms.TabPage tabDadosConsultar;
+        private System.Windows.Forms.Button btnObterAlterar;
+        private System.Windows.Forms.TextBox txtIdAlterar;
+        private System.Windows.Forms.GroupBox gbDadosAlterar;
+        private System.Windows.Forms.TextBox txtNomeAlterar;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnProntoAlterar;
+        private System.Windows.Forms.DataGridView dgvClienteAlterar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox txtPesquisarAlterar;
+        private System.Windows.Forms.CheckBox chkInativosAlterar;
+        private System.Windows.Forms.Button btnVoltarAlterar;
+        private System.Windows.Forms.GroupBox gbTelefoneAlterar;
+        private System.Windows.Forms.TextBox txtTipoTelefoneAlterar;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.MaskedTextBox mstNumeroTelefoneAlterar;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.GroupBox gbEnderecoAlterar;
+        private System.Windows.Forms.TextBox txtTipoAlterar;
+        private System.Windows.Forms.TextBox txtUfAlterar;
+        private System.Windows.Forms.TextBox txtEstadoAlterar;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox txtLogradouroAlterar;
+        private System.Windows.Forms.MaskedTextBox mstCEPAlterar;
+        private System.Windows.Forms.TextBox txtCidadeAlterar;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox txtComplementoAlterar;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox txtNumeroAlterar;
+        private System.Windows.Forms.TextBox txtBairroAlterar;
+        private System.Windows.Forms.CheckBox chkAtivoAlterar;
     }
 }

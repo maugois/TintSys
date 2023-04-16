@@ -59,7 +59,7 @@ namespace TintSysClass
         {
             var cmd = Banco.Abrir();
 
-            cmd.CommandText = "update telefones set numero = @numero, tipo = @tipo where id = " + Id;
+            cmd.CommandText = "update telefones set numero = @numero, tipo = @tipo where cliente_id = " + Id;
             cmd.Parameters.Add("@numero", MySqlDbType.VarChar).Value = Numero;
             cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = Tipo;
 
