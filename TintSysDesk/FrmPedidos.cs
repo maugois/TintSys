@@ -25,7 +25,7 @@ namespace TintSysDesk
 
         private void FrmPedidos_Load(object sender, EventArgs e)
         {
-            cmbCliente.DataSource = Cliente.Listar("", 1);
+            cmbCliente.DataSource = Cliente.Listar();
             cmbCliente.DisplayMember = "Nome";
             cmbCliente.ValueMember = "Id";
 

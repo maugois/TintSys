@@ -54,8 +54,6 @@ namespace TintSysClass
             this.Email = email;
             this.DataCad = dataCad;
             this.Ativo = ativo;
-            this.Enderecos = Enderecos;
-            this.Telefones = Telefones;
         }
 
         public Cliente(int id, string nome, string cpf, string email, bool ativo, List<Endereco> Enderecos, List<Telefone> Telefones)
@@ -69,11 +67,13 @@ namespace TintSysClass
             this.Telefones = Telefones;
         }
 
-        public Cliente(string nome, string cpf, string email)
+        public Cliente(string nome, string cpf, string email, List<Endereco> Enderecos, List<Telefone> Telefones)
         {
             this.Nome = nome;
             this.Cpf = cpf;
             this.Email = email;
+            this.Enderecos = Enderecos;
+            this.Telefones = Telefones;
         }
 
         public Cliente(int cliente_id)
@@ -83,31 +83,48 @@ namespace TintSysClass
         }
 
         // Métodos
-        public void Inserir()
+        public bool Inserir()
         {
-            var cmd = Banco.Abrir();
-            cmd.CommandText = "insert clientes (nome, cpf, email, datacad, ativo) " +
-                               "values(@nome, @cpf, @email, default, default)";
-            cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
-            cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = Cpf;
-            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = Email;
+            MySqlCommand cmd = null;
+            bool teste = false;
 
-            cmd.ExecuteNonQuery();
-
-            cmd.CommandText = "select @@identity";
-            Id = Convert.ToInt32(cmd.ExecuteScalar());
-
-            foreach (var endereco in Enderecos)
+            try
             {
-                endereco.Inserir(Id);
+                cmd = Banco.Abrir();
+
+                cmd.CommandText = "insert clientes (nome, cpf, email, datacad, ativo) " +
+                                   "values(@nome, @cpf, @email, default, default)";
+                cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
+                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = Cpf;
+                cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = Email;
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    cmd.CommandText = "select @@identity";
+                    Id = Convert.ToInt32(cmd.ExecuteScalar());
+                    teste = true;
+
+                    foreach (var endereco in Enderecos)
+                    {
+                        endereco.Inserir(Id);
+                    }
+
+                    foreach (var telefone in Telefones)
+                    {
+                        telefone.Inserir(Id);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                // Mostra o erro
+            }
+            finally
+            {
+                Banco.Fechar(cmd);
             }
 
-            foreach (var telefone in Telefones)
-            {
-                telefone.Inserir(Id);
-            }
-
-            Banco.Fechar(cmd);
+            return teste;
         }
 
 
@@ -171,16 +188,16 @@ namespace TintSysClass
         }
 
 
-        public static List<Cliente> Listar(string nome = "") 
+        public static List<Cliente> Listar(string nome = "", int ativo = 1) 
         {
             List<Cliente> lista = new List<Cliente>();
 
             var cmd = Banco.Abrir();
 
             if (nome.Length > 0)
-                cmd.CommandText = "select * from clientes where nome like '%" + nome + "%'";
+                cmd.CommandText = "select * from clientes where nome like '%" + nome + "%' and ativo = " + ativo;
             else
-                cmd.CommandText = "select * from clientes";
+                cmd.CommandText = "select * from clientes where ativo = " + ativo;
 
             var dr = cmd.ExecuteReader();
 
@@ -231,7 +248,8 @@ namespace TintSysClass
 
         public static List<Cliente> ObterPorIdLista(int _id)
         {
-            List<Cliente> lista = new List<Cliente>();
+            Cliente item = null;
+            List<Cliente> itens = new List<Cliente>();
             var cmd = Banco.Abrir();
 
             cmd.CommandText = "select * from clientes where id = @id";
@@ -240,21 +258,21 @@ namespace TintSysClass
             var dr = cmd.ExecuteReader();
 
             while (dr.Read())
-            {
-                lista.Add(new Cliente(
+            { 
+                item = new Cliente(
                         dr.GetInt32(0),
                         dr.GetString(1),
                         dr.GetString(2),
                         dr.GetString(3),
                         dr.GetDateTime(4),
-                        dr.GetBoolean(5),
-                        Endereco.ListarPorCliente(_id),
-                        Telefone.ListarPorCliente(_id)
-                    ));
+                        dr.GetBoolean(5)
+                    );
+
+                itens.Add(item);
             }
 
             Banco.Fechar(cmd);
-            return lista;
+            return itens;
         }
     }
 }
