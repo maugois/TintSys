@@ -429,8 +429,6 @@ namespace TintSysDesk
         private void btnAdicionarEnderecos_Click(object sender, EventArgs e)
         {
             clienteListaInserirEndereco = new List<Cliente>();
-
-            <Endereco>
         }
 
         public void CarregaGridListarAlterar(string texto = "")
