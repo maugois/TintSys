@@ -147,10 +147,12 @@
             this.txtNumeroAlterar = new System.Windows.Forms.TextBox();
             this.txtBairroAlterar = new System.Windows.Forms.TextBox();
             this.gbDadosAlterar = new System.Windows.Forms.GroupBox();
+            this.chkAtivoAlterar = new System.Windows.Forms.CheckBox();
             this.txtNomeAlterar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btnProntoAlterar = new System.Windows.Forms.Button();
-            this.chkAtivoAlterar = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.pnlConsulta.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefone)).BeginInit();
@@ -1125,6 +1127,7 @@
             // 
             // gbTelefoneAlterar
             // 
+            this.gbTelefoneAlterar.Controls.Add(this.button2);
             this.gbTelefoneAlterar.Controls.Add(this.txtTipoTelefoneAlterar);
             this.gbTelefoneAlterar.Controls.Add(this.label37);
             this.gbTelefoneAlterar.Controls.Add(this.mstNumeroTelefoneAlterar);
@@ -1173,6 +1176,7 @@
             // 
             // gbEnderecoAlterar
             // 
+            this.gbEnderecoAlterar.Controls.Add(this.button1);
             this.gbEnderecoAlterar.Controls.Add(this.txtTipoAlterar);
             this.gbEnderecoAlterar.Controls.Add(this.txtUfAlterar);
             this.gbEnderecoAlterar.Controls.Add(this.txtEstadoAlterar);
@@ -1358,6 +1362,16 @@
             this.gbDadosAlterar.TabStop = false;
             this.gbDadosAlterar.Text = "Dados Pessoais";
             // 
+            // chkAtivoAlterar
+            // 
+            this.chkAtivoAlterar.AutoSize = true;
+            this.chkAtivoAlterar.Location = new System.Drawing.Point(388, 35);
+            this.chkAtivoAlterar.Name = "chkAtivoAlterar";
+            this.chkAtivoAlterar.Size = new System.Drawing.Size(50, 17);
+            this.chkAtivoAlterar.TabIndex = 38;
+            this.chkAtivoAlterar.Text = "Ativo";
+            this.chkAtivoAlterar.UseVisualStyleBackColor = true;
+            // 
             // txtNomeAlterar
             // 
             this.txtNomeAlterar.Location = new System.Drawing.Point(29, 32);
@@ -1385,15 +1399,23 @@
             this.btnProntoAlterar.UseVisualStyleBackColor = true;
             this.btnProntoAlterar.Click += new System.EventHandler(this.btnProntoAlterar_Click);
             // 
-            // chkAtivoAlterar
+            // button1
             // 
-            this.chkAtivoAlterar.AutoSize = true;
-            this.chkAtivoAlterar.Location = new System.Drawing.Point(388, 35);
-            this.chkAtivoAlterar.Name = "chkAtivoAlterar";
-            this.chkAtivoAlterar.Size = new System.Drawing.Size(50, 17);
-            this.chkAtivoAlterar.TabIndex = 38;
-            this.chkAtivoAlterar.Text = "Ativo";
-            this.chkAtivoAlterar.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(416, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 23);
+            this.button1.TabIndex = 60;
+            this.button1.Text = "Adicionar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(411, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(80, 23);
+            this.button2.TabIndex = 61;
+            this.button2.Text = "Adicionar";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // FrmClientes
             // 
@@ -1570,5 +1592,7 @@
         private System.Windows.Forms.TextBox txtNumeroAlterar;
         private System.Windows.Forms.TextBox txtBairroAlterar;
         private System.Windows.Forms.CheckBox chkAtivoAlterar;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

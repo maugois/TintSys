@@ -16,6 +16,9 @@ namespace TintSysDesk
 {
     public partial class FrmClientes : Form
     {
+        List<Cliente> clienteListaInserirTelefone = null;
+        List<Cliente> clienteListaInserirEndereco = null;
+
         public FrmClientes()
         {
             InitializeComponent();
@@ -375,8 +378,8 @@ namespace TintSysDesk
 
             Cliente cliente = new Cliente(
                 txtNome.Text,
+                                mstCpf.Text,
                 txtEmail.Text,
-                mstCpf.Text,
                 ListaEndereco,
                 ListaTelefone);
 
@@ -418,12 +421,16 @@ namespace TintSysDesk
 
         private void btnAdicionarTelefone_Click(object sender, EventArgs e)
         {
+            clienteListaInserirTelefone = new List<Cliente>();
+
 
         }
 
         private void btnAdicionarEnderecos_Click(object sender, EventArgs e)
         {
+            clienteListaInserirEndereco = new List<Cliente>();
 
+            <Endereco>
         }
 
         public void CarregaGridListarAlterar(string texto = "")
